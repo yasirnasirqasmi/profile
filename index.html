@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasir Nasir Qasmi — Software, Web & AI Automation Developer</title>
+<meta name="description" content="Yasir Nasir Qasmi — full-stack developer in Jeddah, Saudi Arabia. PHP platforms, MQL5 trading robots, Flutter apps, Python automation and AI-powered tools, built end to end.">
+<meta name="theme-color" content="#080D18">
+<meta property="og:title" content="Yasir Nasir Qasmi — Software, Web & AI Automation Developer">
+<meta property="og:description" content="End-to-end builds: web platforms, trading systems, mobile apps and AI automation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --void:#080D18;
+  --deep:#0C1424;
+  --panel:#121C30;
+  --panel-2:#16223A;
+  --edge:rgba(255,255,255,.09);
+  --edge-strong:rgba(255,255,255,.16);
+  --ink:#EAF0FA;
+  --muted:#8CA0C0;
+  --amber:#FFB454;
+  --aqua:#4FE3C1;
+  --rose:#FF6B7A;
+
+  --display:'Chakra Petch',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+
+  --max:1200px;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 78% -5%,rgba(255,180,84,.10),transparent 60%),
+    radial-gradient(800px 700px at 5% 20%,rgba(79,227,193,.07),transparent 60%),
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px) 0 0/64px 64px,
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px) 0 0/64px 64px;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--amber);color:#0A0F1C}
+:focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:6px}
+
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{position:relative;z-index:1}
+
+/* ============ TYPE ============ */
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.015em}
+h1{font-size:clamp(2.4rem,6.2vw,4.5rem)}
+h2{font-size:clamp(1.9rem,3.9vw,2.9rem)}
+h3{font-size:1.12rem;letter-spacing:0}
+p{color:var(--muted)}
+.lede{font-size:clamp(1rem,1.6vw,1.16rem);max-width:56ch}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--aqua);transform:rotate(45deg);flex:none}
+.eyebrow.amber::before{background:var(--amber)}
+
+/* ============ NAV ============ */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(8,13,24,.55);border-bottom:1px solid transparent;transition:.35s;
+}
+header.nav.stuck{background:rgba(8,13,24,.9);border-bottom-color:var(--edge)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;letter-spacing:-.01em}
+.brand .mark{
+  width:30px;height:30px;flex:none;border-radius:8px;position:relative;
+  background:linear-gradient(140deg,var(--amber),#FF8A5B 55%,var(--aqua));
+  box-shadow:0 6px 18px rgba(255,180,84,.28);
+}
+.brand .mark::after{
+  content:"YQ";position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--mono);font-size:.62rem;font-weight:500;color:#0A0F1C;letter-spacing:.02em;
+}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:10px;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--edge-strong);color:var(--ink);background:rgba(255,255,255,.03);
+  transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--amber);background:rgba(255,180,84,.08)}
+.btn.solid{background:var(--amber);color:#0A0F1C;border-color:var(--amber);font-weight:500}
+.btn.solid:hover{box-shadow:0 12px 28px rgba(255,180,84,.28);background:#FFC072}
+.nav-cta{padding:10px 16px}
+.menu-btn{display:none;background:none;border:1px solid var(--edge);border-radius:9px;padding:9px 11px;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--ink);margin:3px 0;border-radius:2px}
+
+/* ============ HERO ============ */
+.hero{padding:150px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{margin:20px 0 20px}
+.hero h1 .grad{
+  background:linear-gradient(100deg,var(--amber),#FFD9A0 40%,var(--aqua));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 34px}
+.stats{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--edge);padding-top:20px}
+.stat{padding-right:34px;margin-right:34px;border-right:1px solid var(--edge)}
+.stat:last-child{border:0;margin:0;padding:0}
+.stat b{display:block;font-family:var(--display);font-size:1.6rem;color:var(--ink)}
+.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* signature: 3D project constellation */
+.orb{position:relative;aspect-ratio:1;width:100%;max-width:520px;margin-left:auto}
+.orb canvas{width:100%;height:100%;display:block;cursor:grab}
+.orb-fallback{
+  position:absolute;inset:12%;border-radius:50%;
+  border:1px solid var(--edge-strong);
+  background:radial-gradient(circle at 35% 30%,rgba(255,180,84,.20),transparent 60%),
+             radial-gradient(circle at 70% 75%,rgba(79,227,193,.16),transparent 60%);
+  animation:spin 26s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb-label{
+  position:absolute;top:0;left:0;pointer-events:none;opacity:0;transform:translate(-50%,-160%);
+  background:rgba(8,13,24,.92);border:1px solid var(--edge-strong);border-radius:9px;
+  padding:7px 11px;white-space:nowrap;transition:opacity .18s;backdrop-filter:blur(8px);
+}
+.orb-label.on{opacity:1}
+.orb-label b{display:block;font-family:var(--display);font-size:.86rem}
+.orb-label span{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.orb-hint{
+  position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  text-align:center;width:100%;
+}
+
+/* ============ SECTION SHELL ============ */
+.sec{padding:96px 0}
+.sec.alt{background:linear-gradient(180deg,transparent,var(--deep) 12%,var(--deep) 88%,transparent)}
+.sec-head{max-width:60ch;margin-bottom:44px}
+.sec-head h2{margin:16px 0 14px}
+
+/* ============ CAPABILITIES ============ */
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cap{
+  background:linear-gradient(160deg,var(--panel),var(--deep));
+  border:1px solid var(--edge);border-radius:var(--r);padding:24px 22px 26px;
+  position:relative;overflow:hidden;transition:transform .3s,border-color .3s;
+}
+.cap:hover{transform:translateY(-5px);border-color:var(--edge-strong)}
+.cap::after{content:"";position:absolute;top:0;left:22px;right:22px;height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.5}
+.cap .glyph{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:16px;
+  background:rgba(255,180,84,.12);border:1px solid rgba(255,180,84,.3);font-family:var(--mono);font-size:.8rem;color:var(--amber)}
+.cap:nth-child(2n) .glyph{background:rgba(79,227,193,.12);border-color:rgba(79,227,193,.3);color:var(--aqua)}
+.cap h3{margin-bottom:9px}
+.cap p{font-size:.92rem}
+.cap ul{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.cap li{font-family:var(--mono);font-size:.66rem;color:var(--muted);border:1px solid var(--edge);border-radius:5px;padding:3px 7px}
+
+/* ============ FILTERS ============ */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:34px}
+.chip{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:9px 15px;border-radius:999px;border:1px solid var(--edge);
+  background:transparent;color:var(--muted);cursor:pointer;transition:.22s;
+}
+.chip:hover{color:var(--ink);border-color:var(--edge-strong)}
+.chip.on{background:var(--ink);color:#0A0F1C;border-color:var(--ink)}
+
+/* ============ PROJECT CARDS (3D) ============ */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card-shell{perspective:1100px}
+.card{
+  position:relative;height:100%;border-radius:16px;padding:16px 16px 20px;
+  background:linear-gradient(165deg,var(--panel-2),var(--deep) 70%);
+  border:1px solid var(--edge);
+  transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s,border-color .35s;
+  box-shadow:0 18px 40px -28px rgba(0,0,0,.9);
+}
+.card:hover{border-color:var(--edge-strong);box-shadow:0 34px 60px -30px rgba(0,0,0,.95),0 0 0 1px rgba(255,180,84,.08)}
+.card .glare{
+  position:absolute;inset:0;border-radius:16px;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.10),transparent 45%);
+}
+.card:hover .glare{opacity:1}
+.card-lift{transform:translateZ(28px)}
+.card-meta{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px}
+.card-cat{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.card-year{font-family:var(--mono);font-size:.62rem;color:var(--muted)}
+.card h3{margin-bottom:8px}
+.card p{font-size:.9rem;line-height:1.55}
+.tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tech span{font-family:var(--mono);font-size:.63rem;color:#B6C6E0;background:rgba(255,255,255,.05);border:1px solid var(--edge);border-radius:5px;padding:3px 7px}
+.card-link{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--aqua)}
+.card-link:hover{gap:11px}
+.card.hidden{display:none}
+.card-shell.flash .card{border-color:var(--amber);box-shadow:0 0 0 2px rgba(255,180,84,.35),0 30px 60px -30px #000}
+
+/* ============ MINI UI PREVIEWS ============ */
+.scr{
+  position:relative;aspect-ratio:16/10;border-radius:11px;overflow:hidden;
+  background:linear-gradient(160deg,#0B1220,#060A14);border:1px solid var(--edge);
+}
+.scr-top{height:20px;display:flex;align-items:center;gap:5px;padding:0 8px;background:rgba(255,255,255,.045);border-bottom:1px solid var(--edge)}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.22);flex:none}
+.dot.a{background:#FF6B7A}.dot.b{background:var(--amber)}.dot.c{background:var(--aqua)}
+.url{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,.09);margin-left:6px}
+.scr-body{padding:9px;height:calc(100% - 20px);display:flex;gap:7px}
+.col{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.side{width:24%;flex:none}
+.b{height:6px;border-radius:3px;background:rgba(255,255,255,.10)}
+.b.s{width:55%}.b.m{width:75%}.b.l{width:100%}
+.b.tall{height:20px}
+.b.amber{background:linear-gradient(90deg,var(--amber),rgba(255,180,84,.25))}
+.b.aqua{background:linear-gradient(90deg,var(--aqua),rgba(79,227,193,.2))}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:1}
+.tiles.two{grid-template-columns:repeat(2,1fr)}
+.tile{border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--edge)}
+.tile.hi{background:rgba(255,180,84,.12);border-color:rgba(255,180,84,.28)}
+.tile.aq{background:rgba(79,227,193,.10);border-color:rgba(79,227,193,.26)}
+.bars{display:flex;align-items:flex-end;gap:4px;flex:1}
+.bar{flex:1;border-radius:2px 2px 0 0;background:linear-gradient(180deg,var(--aqua),rgba(79,227,193,.15))}
+.candles{display:flex;align-items:center;gap:3px;flex:1;position:relative}
+.cd{flex:1;border-radius:1px}
+.cd.up{background:var(--aqua)}.cd.dn{background:var(--rose)}
+.term{padding:9px 10px;font-family:var(--mono);font-size:.5rem;line-height:1.9;color:#9FB2CE;height:100%;overflow:hidden}
+.term .g{color:var(--aqua)}.term .y{color:var(--amber)}.term .r{color:var(--rose)}.term .w{color:#DCE6F5}
+.phone{width:44%;margin:0 auto;height:100%;border-radius:12px;border:1px solid var(--edge-strong);background:#0A101E;padding:7px 6px;display:flex;flex-direction:column;gap:5px}
+.notch{width:26%;height:3px;border-radius:3px;background:rgba(255,255,255,.2);margin:0 auto 3px}
+.sheet{background:#F1F4FA;border-radius:4px;flex:1;padding:8px 9px;display:flex;flex-direction:column;gap:4px}
+.sheet .b{background:rgba(12,20,36,.16)}
+.sheet .b.amber{background:linear-gradient(90deg,#C98A2E,rgba(201,138,46,.25))}
+.sheet .bar{background:linear-gradient(180deg,#2A6E60,rgba(42,110,96,.18))}
+.grid-lines{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/100% 25%;pointer-events:none}
+.badge{position:absolute;top:26px;right:8px;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;color:var(--amber);border:1px solid rgba(255,180,84,.35);background:rgba(255,180,84,.10);border-radius:4px;padding:2px 5px}
+
+/* ============ PROCESS ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{border-left:1px solid var(--edge);padding:6px 0 6px 22px;position:relative}
+.step::before{
+  counter-increment:s;content:"0" counter(s);
+  position:absolute;left:-1px;top:6px;width:2px;height:38px;background:var(--amber);
+}
+.step .num{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--amber);display:block;margin-bottom:10px}
+.step h3{margin-bottom:8px}
+.step p{font-size:.92rem}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.about p+p{margin-top:16px}
+.panel{background:linear-gradient(160deg,var(--panel),var(--deep));border:1px solid var(--edge);border-radius:var(--r);padding:26px}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dashed var(--edge);font-size:.9rem}
+.kv:last-child{border:0}
+.kv dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none}
+.kv dd{text-align:right;color:var(--ink)}
+.certs{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.certs span{font-family:var(--mono);font-size:.65rem;color:var(--muted);border:1px solid var(--edge);border-radius:6px;padding:5px 9px}
+
+/* ============ CONTACT ============ */
+.contact{
+  border:1px solid var(--edge-strong);border-radius:22px;padding:clamp(30px,5vw,60px);
+  background:linear-gradient(150deg,rgba(255,180,84,.10),rgba(79,227,193,.06) 60%,transparent),
+             linear-gradient(160deg,var(--panel-2),var(--deep));
+  text-align:center;position:relative;overflow:hidden;
+}
+.contact h2{margin:16px auto 16px;max-width:16ch}
+.contact p{margin:0 auto;max-width:52ch}
+.contact-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.avail{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--aqua)}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 0 0 rgba(79,227,193,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(79,227,193,0)}100%{box-shadow:0 0 0 0 rgba(79,227,193,0)}}
+
+footer{border-top:1px solid var(--edge);margin-top:90px;padding:28px 0 40px}
+.foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted)}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .orb{margin:0 auto;max-width:420px;order:-1}
+  .cap-grid{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:28px}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .nav-links{
+    position:fixed;inset:66px 0 auto;flex-direction:column;align-items:flex-start;gap:0;
+    background:rgba(8,13,24,.98);border-bottom:1px solid var(--edge);padding:8px 24px 22px;
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--edge);font-size:.85rem}
+  .menu-btn{display:block}
+  .nav-cta{display:none}
+  .hero{padding:118px 0 70px}
+  .sec{padding:70px 0}
+  .cap-grid,.work-grid{grid-template-columns:1fr}
+  .stat{padding-right:22px;margin-right:22px}
+  .stat b{font-size:1.35rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="mark"></span> Yasir&nbsp;Qasmi</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="experience.html">3D Lab</a>
+      <a href="#work">Work</a>
+      <a href="#capabilities">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn solid nav-cta">Start a project</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Jeddah, Saudi Arabia · Full-stack &amp; AI automation</span>
+      <h1>I ship complete systems,<br><span class="grad">not just screens.</span></h1>
+      <p class="lede">Web platforms, trading robots, mobile apps and AI-powered automation. Every project below went from empty database to live deployment — schema, backend, interface, and the scripts that keep it running.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn solid">See the work</a>
+        <a href="experience.html" class="btn">Enter the 3D lab</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>23</b><span>Shipped builds</span></div>
+        <div class="stat"><b>6</b><span>Languages &amp; stacks</span></div>
+        <div class="stat"><b>5 yrs</b><span>Building software</span></div>
+      </div>
+    </div>
+    <div class="orb" id="orb">
+      <div class="orb-fallback" id="orbFallback"></div>
+      <canvas id="constellation" aria-label="Interactive 3D map of projects"></canvas>
+      <div class="orb-label" id="orbLabel"><b></b><span></span></div>
+      <p class="orb-hint">Every node is a shipped project — hover one</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="sec alt" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">What I build</span>
+      <h2>Four kinds of work, one way of working</h2>
+      <p class="lede">Most clients come with half a system already in their head. My job is to turn that into a database, an interface people can actually use, and automation that removes the manual part.</p>
+    </div>
+    <div class="cap-grid">
+      <article class="cap rv">
+        <div class="glyph">&lt;/&gt;</div>
+        <h3>Web platforms</h3>
+        <p>Classifieds portals, job boards, company sites — with the admin panel, roles, and SEO handled properly.</p>
+        <ul><li>PHP 8.3</li><li>MySQL / MariaDB</li><li>Admin panels</li><li>SEO</li></ul>
+      </article>
+      <article class="cap rv">
+        <div class="glyph">◈</div>
+        <h3>AI automation</h3>
+        <p>Claude-powered assistants, analysis terminals, browser extensions and bots that write, decide, and summarise.</p>
+        <ul><li>Claude API</li><li>Chrome extensions</li><li>Python</li><li>Prompt design</li></ul>
+      </article>
+      <article class="cap rv">
+        <div class="glyph">↗</div>
+        <h3>Trading systems</h3>
+        <p>MT5 Expert Advisors and TradingView indicators for XAUUSD — entry logic, risk caps, and backtest-ready code.</p>
+        <ul><li>MQL5</li><li>Pine Script v5</li><li>Risk logic</li><li>Backtesting</li></ul>
+      </article>
+      <article class="cap rv">
+        <div class="glyph">▦</div>
+        <h3>Data &amp; documents</h3>
+        <p>Dashboards, scrapers, and generated Word/PDF/Excel deliverables — bilingual contracts, decks and reports.</p>
+        <ul><li>Power BI</li><li>Tableau</li><li>Scrapers</li><li>Doc automation</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow amber">Selected work</span>
+      <h2>Projects, with the interface that shipped</h2>
+      <p class="lede">Filter by the kind of build you need. Each preview is the real screen layout — dashboards, terminals, phone apps and documents.</p>
+    </div>
+    <div class="filters rv" id="filters"></div>
+    <div class="work-grid" id="workGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec alt" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How a project runs</span>
+      <h2>Three stages, no surprise invoices</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <span class="num">STAGE 01</span>
+        <h3>Scope &amp; schema</h3>
+        <p>We agree what the system must do, then I write the database schema and screen list before any code. You approve that first — it's where projects usually go wrong.</p>
+      </div>
+      <div class="step rv">
+        <span class="num">STAGE 02</span>
+        <h3>Build in milestones</h3>
+        <p>Work ships in reviewable pieces: admin panel, then public side, then integrations. You see progress on a live staging link every few days, not at the end.</p>
+      </div>
+      <div class="step rv">
+        <span class="num">STAGE 03</span>
+        <h3>Deploy &amp; hand over</h3>
+        <p>Deployment on your hosting, with source files, credentials, and a short walkthrough so your team can run it without me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <span class="eyebrow">About</span>
+      <h2 style="margin:16px 0 18px">Data by day, systems by night</h2>
+      <p>I'm Yasir Nasir Qasmi — Senior Data Controller at Fazco Technology &amp; Data Solutions in Jeddah, and a freelance developer for clients across Saudi Arabia and Pakistan.</p>
+      <p>The day job is data: pipelines, reporting, Power BI. The freelance work is everything around it — the PHP platform that collects the data, the Python script that cleans it, the MQL5 robot that acts on it, and the document generator that turns it into something a client can sign.</p>
+      <p>That mix is the point. I don't hand over a front end and leave the hard part to someone else.</p>
+      <div class="certs">
+        <span>PL-300 Power BI</span><span>Azure Data Engineer</span><span>Google Data Foundations</span>
+        <span>Tableau</span><span>CompTIA A+</span><span>WordPress</span><span>SEO</span><span>E-Commerce</span>
+      </div>
+    </div>
+    <div class="panel rv">
+      <dl>
+        <div class="kv"><dt>Based in</dt><dd>Jeddah, Saudi Arabia</dd></div>
+        <div class="kv"><dt>Role</dt><dd>Senior Data Controller, Fazco</dd></div>
+        <div class="kv"><dt>Education</dt><dd>B.S. Software Engineering, VU Pakistan</dd></div>
+        <div class="kv"><dt>Languages</dt><dd>English, Urdu, Arabic (basic)</dd></div>
+        <div class="kv"><dt>Works with</dt><dd>PHP · Python · MQL5 · React · Flutter</dd></div>
+        <div class="kv"><dt>Hosting</dt><dd>Hostinger, Hetzner VPS, shared &amp; cloud</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact rv">
+      <span class="avail"><i></i> Available for new projects</span>
+      <h2>Tell me what you're trying to build</h2>
+      <p>Send the idea in one paragraph — English or Urdu. You'll get a scope, a timeline, and a fixed price back, usually within a day.</p>
+      <div class="contact-cta">
+        <a href="mailto:you@example.com" class="btn solid" id="mailBtn">Email me</a>
+        <a href="https://wa.me/966500000000" class="btn" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/your-profile" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> Yasir Nasir Qasmi — Jeddah, KSA</span>
+    <span>Built from scratch · no page builder</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* =====================================================================
+   PROJECT DATA — edit titles / links here
+   ===================================================================== */
+const PROJECTS = [
+  { id:'expat', title:'Expatriates KSA', cat:'Web platform', group:'web', year:'2026',
+    desc:'A full classifieds marketplace for expats in Saudi Arabia: category and city search, ad posting, moderation queue, forum, and an SEO layer built for Google Search Console.',
+    tech:['PHP 8.3','MariaDB','Vanilla JS','SEO'], link:'https://expatriatesksa.com', preview:'browser' },
+
+  { id:'terminal', title:'XAUUSD Analysis Terminal', cat:'AI automation', group:'ai', year:'2026',
+    desc:'A React terminal that pulls live market context, runs it through Claude with web search, and returns a structured gold analysis in English or Roman Urdu — with saved history.',
+    tech:['React','Claude API','Web search'], preview:'chart' },
+
+  { id:'ea', title:'MT5 Expert Advisors — XAUUSD', cat:'Trading system', group:'trading', year:'2026',
+    desc:'A family of MQL5 robots: EMA/RSI scalper, trend filter version, and a martingale build with lot caps, drawdown limits and auto-pause after a losing streak.',
+    tech:['MQL5','MetaTrader 5','Risk logic'], preview:'terminal' },
+
+  { id:'bidding', title:'Smart Bidding Assistant', cat:'AI automation', group:'ai', year:'2026',
+    desc:'A Chrome extension for Freelancer.com that reads a job post, drafts a tailored proposal with AI, and tracks bids — delivered with a milestone-based client contract.',
+    tech:['Chrome MV3','JavaScript','Claude API'], preview:'extension' },
+
+  { id:'fazco', title:'Fazco Corporate Site + Admin', cat:'Web platform', group:'web', year:'2025',
+    desc:'Company website with a complete admin panel: products, categories, brands, banners, reviews, messages, users, and role separation between admin and editor — plus live theme colours.',
+    tech:['PHP','MySQL','RBAC','CSS variables'], preview:'dashboard' },
+
+  { id:'vpn', title:'OneTapVPN', cat:'Mobile app', group:'mobile', year:'2026',
+    desc:'A Flutter Android VPN client built on WireGuard: one-tap connect, server list, and a self-hosted VPS backend — packaged for Play Store release.',
+    tech:['Flutter','Dart','WireGuard','VPS'], preview:'phone' },
+
+  { id:'salah', title:'SalahTime', cat:'Mobile app', group:'mobile', year:'2025',
+    desc:'A prayer companion in React Native: accurate prayer times, tracking with streaks and stats, Quran reading, and a live Qibla compass.',
+    tech:['React Native','Location APIs'], preview:'phone2' },
+
+  { id:'ilove', title:'PDF Tools Suite', cat:'Web platform', group:'web', year:'2025',
+    desc:'A self-hosted iLovePDF-style toolkit — merge, split, compress and convert — with user accounts, CSRF protection, and tools that enable only when the server binary exists.',
+    tech:['PHP','MySQL','Ghostscript','Auth'], preview:'tools' },
+
+  { id:'jobhub', title:'JobHub Portal', cat:'Web platform', group:'web', year:'2025',
+    desc:'A three-sided job board: jobseekers with profiles and applications, employers with listings and applicant tracking, and an admin layer over both.',
+    tech:['PHP','MySQL','Multi-role'], preview:'listing' },
+
+  { id:'sitesweep', title:'SiteSweep', cat:'Developer tool', group:'data', year:'2025',
+    desc:'A domain intelligence tool returning real data, not estimates: RDAP registration records, DNS records, SSL certificate chain, IP geolocation and hosting details.',
+    tech:['PHP','RDAP','DNS','SSL'], preview:'terminal2' },
+
+  { id:'pine', title:'XAUUSD All-in-One Indicator', cat:'Trading system', group:'trading', year:'2025',
+    desc:'A TradingView Pine Script v5 indicator combining trend bias, entry signals, automatic TP/SL levels and support/resistance zones on one chart.',
+    tech:['Pine Script v5','TradingView'], preview:'chart2' },
+
+  { id:'macro', title:'Macro Recorder', cat:'Automation', group:'ai', year:'2025',
+    desc:'A Windows desktop tool that records mouse and keyboard actions, then replays them on a loop with adjustable speed — built for repetitive data entry work.',
+    tech:['Python','Tkinter','pynput'], preview:'app' },
+
+  { id:'scraper', title:'Listings Data Pipeline', cat:'Automation', group:'ai', year:'2025',
+    desc:'A scheduled PHP scraper for RSS listing feeds with Cloudflare handling, rate limiting, deduplication and structured import into MySQL.',
+    tech:['PHP','RSS','Cron','MySQL'], preview:'pipeline' },
+
+  { id:'contracts', title:'Bilingual Trade Agreements', cat:'Data & documents', group:'data', year:'2026',
+    desc:'Arabic/English supply and partnership contracts for retail groups — mirrored two-column layout, signature blocks, payment and delivery terms, exported as print-ready PDF and editable Word.',
+    tech:['Word','PDF','Arabic RTL','Templates'], preview:'doc2' },
+
+  { id:'cv', title:'CV & Proposal Studio', cat:'Data & documents', group:'data', year:'2026',
+    desc:'ATS-friendly CVs and client proposals built to order: role-targeted variants, milestone payment tables, and a matching interview preparation pack.',
+    tech:['Word','PDF','ATS layout'], preview:'cv' },
+
+  { id:'deck', title:'Tea Brand Marketing Deck', cat:'Data & documents', group:'data', year:'2025',
+    desc:'A 63-slide go-to-market presentation built from a written plan — positioning, channel strategy, pricing and rollout timeline, on a consistent slide system.',
+    tech:['PowerPoint','Slide system','Charts'], preview:'slides' },
+
+  { id:'bi', title:'Reporting Dashboards', cat:'Data & documents', group:'data', year:'2026',
+    desc:'Operational reporting at Fazco: cleaned data models, KPI dashboards and scheduled refreshes that replaced manual spreadsheet reporting.',
+    tech:['Power BI','Excel','SQL'], preview:'dashboard2' },
+
+  { id:'copier', title:'Signal Copier Bot', cat:'Trading system', group:'trading', year:'2026',
+    desc:'A bot that reads trading signals from a chat channel, parses entry, stop loss and take profit out of free text, and places the order on MetaTrader 5 automatically.',
+    tech:['Python','Discord API','MT5 bridge'], preview:'chat' },
+
+  { id:'newsbot', title:'News-Filtered Trading Engine', cat:'Trading system', group:'trading', year:'2025',
+    desc:'A Python trading layer over MT5 that pulls the economic calendar, blocks entries around high-impact releases, and resumes once volatility settles.',
+    tech:['Python','MetaTrader5','Forex Factory'], preview:'news' },
+
+  { id:'expatconnect', title:'ExpatConnect', cat:'Web platform', group:'web', year:'2024',
+    desc:'The first-generation classifieds build for the Saudi expat market: category tree, city filters, ad expiry rules, report handling and a moderator dashboard.',
+    tech:['PHP','MySQL','Bootstrap'], preview:'listing' },
+
+  { id:'wp', title:'WordPress & SEO Builds', cat:'Web platform', group:'web', year:'2024',
+    desc:'Client business sites on WordPress with technical SEO done properly — schema markup, canonicals, sitemaps, Search Console cleanup and page speed work.',
+    tech:['WordPress','Technical SEO','Analytics'], preview:'seo' },
+
+  { id:'ads', title:'AI Ad Creative Studio', cat:'AI automation', group:'ai', year:'2025',
+    desc:'Product ad visuals for social campaigns generated with AI image tools, then set into a repeatable brand layout — same product, many sizes and placements.',
+    tech:['AI image gen','Brand layouts','Social'], preview:'creative' },
+
+  { id:'research', title:'E-Commerce Market Research', cat:'Data & documents', group:'data', year:'2025',
+    desc:'Category research across Amazon.sa and Noon for a Saudi retail venture — pricing bands, competitor listings and demand signals turned into a partnership proposal.',
+    tech:['Research','Excel','Reporting'], preview:'report' },
+];
+
+const GROUPS = [
+  { key:'all', label:'All work' },
+  { key:'web', label:'Web platforms' },
+  { key:'ai', label:'AI & automation' },
+  { key:'trading', label:'Trading systems' },
+  { key:'mobile', label:'Mobile apps' },
+  { key:'data', label:'Data & docs' },
+];
+
+/* =====================================================================
+   MINI UI PREVIEWS (pure CSS/HTML — no images)
+   ===================================================================== */
+const bars = (arr,cls='bar') => arr.map(h=>`<div class="${cls}" style="height:${h}%"></div>`).join('');
+const candles = arr => arr.map(c=>`<div class="cd ${c[1]}" style="height:${c[0]}%;margin-top:${c[2]}%"></div>`).join('');
+
+const PREVIEWS = {
+  browser:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><i class="dot b"></i><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col">
+      <div class="b tall amber"></div>
+      <div class="tiles"><div class="tile hi"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile aq"></div><div class="tile"></div></div>
+      <div class="b m"></div><div class="b s"></div>
+    </div></div></div>`,
+
+  dashboard:()=>`<div class="scr"><div class="scr-top"><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col side"><div class="b l amber"></div><div class="b l"></div><div class="b m"></div><div class="b l"></div><div class="b s"></div></div>
+    <div class="col"><div class="tiles"><div class="tile hi"></div><div class="tile aq"></div><div class="tile"></div></div>
+      <div class="bars">${bars([40,65,50,80,60,95,70])}</div></div></div></div>`,
+
+  dashboard2:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col"><div class="tiles two"><div class="tile hi"></div><div class="tile aq"></div></div>
+      <div class="bars">${bars([55,30,75,45,90,60,80,35])}</div><div class="b m"></div></div></div></div>`,
+
+  chart:()=>`<div class="scr"><div class="scr-top"><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body" style="position:relative"><div class="grid-lines"></div>
+    <div class="col" style="flex:2"><div class="candles">${candles([[30,'up',26],[42,'up',14],[26,'dn',30],[52,'up',8],[34,'dn',20],[60,'up',4],[28,'up',24],[46,'dn',12],[38,'up',22],[56,'up',6]])}</div></div>
+    <div class="col side"><div class="b l aqua"></div><div class="b m"></div><div class="b l"></div><div class="b s amber"></div><div class="b m"></div></div></div>
+    <span class="badge">XAU/USD</span></div>`,
+
+  chart2:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body" style="position:relative"><div class="grid-lines"></div>
+    <div class="col"><div class="candles">${candles([[38,'up',20],[30,'dn',26],[50,'up',10],[44,'up',16],[26,'dn',32],[58,'up',6],[36,'up',22],[48,'dn',12],[62,'up',4]])}</div>
+    <div class="b l amber"></div><div class="b m aqua"></div></div></div><span class="badge">TP / SL</span></div>`,
+
+  terminal:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><i class="dot b"></i><div class="url"></div></div>
+    <div class="term">
+      <div><span class="y">[EA]</span> init — symbol XAUUSD, tf M5</div>
+      <div><span class="g">signal</span> buy · ema fast &gt; slow · rsi 41</div>
+      <div><span class="w">order</span> lot 0.02 sl 380 tp 520</div>
+      <div><span class="g">closed</span> +$14.60 · streak 3</div>
+      <div><span class="r">guard</span> drawdown 4.1% — cap ok</div>
+      <div><span class="y">pause</span> news window 15m</div>
+    </div></div>`,
+
+  terminal2:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="term">
+      <div><span class="y">domain</span> example.com</div>
+      <div><span class="g">rdap</span> registered 2014-03-11</div>
+      <div><span class="w">dns</span> A · MX · TXT · NS ✓</div>
+      <div><span class="g">ssl</span> valid · expires in 68d</div>
+      <div><span class="w">geo</span> Frankfurt, DE · AS24940</div>
+      <div><span class="y">score</span> 92 / 100</div>
+    </div></div>`,
+
+  extension:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><i class="dot b"></i><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col"><div class="b m"></div><div class="b l"></div><div class="b s"></div><div class="b m"></div></div>
+    <div class="col" style="flex:1.1;background:rgba(255,180,84,.08);border:1px solid rgba(255,180,84,.3);border-radius:8px;padding:7px">
+      <div class="b s amber"></div><div class="b l"></div><div class="b l"></div><div class="b m"></div><div class="b tall amber" style="margin-top:auto"></div></div></div></div>`,
+
+  phone:()=>`<div class="scr"><div class="scr-body" style="padding:7px"><div class="phone"><div class="notch"></div>
+    <div class="b s" style="margin:0 auto"></div>
+    <div style="flex:1;display:grid;place-items:center"><div style="width:52px;height:52px;border-radius:50%;background:rgba(79,227,193,.14);border:1px solid rgba(79,227,193,.45)"></div></div>
+    <div class="b l aqua"></div><div class="b m" style="margin:0 auto"></div></div></div></div>`,
+
+  phone2:()=>`<div class="scr"><div class="scr-body" style="padding:7px"><div class="phone"><div class="notch"></div>
+    <div class="b s amber"></div><div class="b l"></div><div class="b m"></div>
+    <div class="tiles two" style="flex:none;height:26px"><div class="tile hi"></div><div class="tile aq"></div></div>
+    <div class="b l"></div><div class="b m"></div><div class="b s"></div></div></div></div>`,
+
+  tools:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col"><div class="b s amber"></div>
+      <div class="tiles"><div class="tile hi"></div><div class="tile"></div><div class="tile aq"></div><div class="tile"></div><div class="tile"></div><div class="tile hi"></div></div>
+      <div class="b m"></div></div></div></div>`,
+
+  listing:()=>`<div class="scr"><div class="scr-top"><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col side"><div class="b l"></div><div class="b m amber"></div><div class="b l"></div><div class="b s"></div></div>
+    <div class="col">
+      <div style="border:1px solid var(--edge);border-radius:6px;padding:6px;display:flex;flex-direction:column;gap:4px"><div class="b m aqua"></div><div class="b l"></div></div>
+      <div style="border:1px solid var(--edge);border-radius:6px;padding:6px;display:flex;flex-direction:column;gap:4px"><div class="b s"></div><div class="b l"></div></div>
+      <div style="border:1px solid var(--edge);border-radius:6px;padding:6px;display:flex;flex-direction:column;gap:4px"><div class="b m"></div><div class="b l"></div></div>
+    </div></div></div>`,
+
+  app:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col">
+      <div style="display:flex;gap:5px"><div class="b tall amber" style="width:34%"></div><div class="b tall" style="width:34%"></div><div class="b tall" style="width:32%"></div></div>
+      <div class="term" style="flex:1;padding:6px 0"><div><span class="g">rec</span> click 842,391</div><div><span class="w">key</span> ctrl+v</div><div><span class="y">wait</span> 1.2s</div><div><span class="g">loop</span> 24 / 100</div></div>
+    </div></div></div>`,
+
+  pipeline:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col" style="justify-content:center;gap:8px">
+      <div style="display:flex;align-items:center;gap:6px"><div class="tile aq" style="width:26%;height:20px"></div><div class="b s" style="flex:1"></div><div class="tile hi" style="width:26%;height:20px"></div></div>
+      <div style="display:flex;align-items:center;gap:6px"><div class="b m"></div></div>
+      <div style="display:flex;align-items:center;gap:6px"><div class="tile" style="width:26%;height:20px"></div><div class="b s" style="flex:1"></div><div class="tile" style="width:26%;height:20px"></div></div>
+    </div></div></div>`,
+
+  doc:()=>`<div class="scr"><div class="scr-body" style="padding:10px 14px"><div class="sheet">
+    <div class="b s amber"></div><div class="b l"></div><div class="b l"></div><div class="b m"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:2px">
+      <div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div></div>
+    <div class="b s" style="margin-top:auto"></div></div></div></div>`,
+
+  doc2:()=>`<div class="scr"><div class="scr-body" style="padding:10px 12px"><div class="sheet" style="flex-direction:row;gap:8px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px"><div class="b s amber"></div><div class="b l"></div><div class="b l"></div><div class="b m"></div><div class="b l"></div><div class="b s" style="margin-top:auto"></div></div>
+    <div style="width:1px;background:rgba(12,20,36,.14)"></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-end"><div class="b s amber"></div><div class="b l"></div><div class="b l"></div><div class="b m"></div><div class="b l"></div><div class="b s" style="margin-top:auto"></div></div>
+  </div></div><span class="badge">AR / EN</span></div>`,
+
+  cv:()=>`<div class="scr"><div class="scr-body" style="padding:10px 14px"><div class="sheet" style="flex-direction:row;gap:8px">
+    <div style="width:32%;display:flex;flex-direction:column;gap:4px">
+      <div style="width:22px;height:22px;border-radius:50%;background:rgba(12,20,36,.2);margin-bottom:2px"></div>
+      <div class="b l"></div><div class="b m"></div><div class="b l"></div><div class="b s"></div><div class="b m"></div></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+      <div class="b m amber"></div><div class="b l"></div><div class="b l"></div><div class="b s"></div>
+      <div class="b m amber" style="margin-top:3px"></div><div class="b l"></div><div class="b l"></div></div>
+  </div></div></div>`,
+
+  slides:()=>`<div class="scr"><div class="scr-top"><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body" style="flex-direction:column;gap:6px">
+      <div style="flex:1;border-radius:6px;border:1px solid rgba(255,180,84,.28);background:rgba(255,180,84,.08);padding:8px;display:flex;flex-direction:column;gap:5px">
+        <div class="b s amber"></div><div class="b m"></div><div class="bars" style="flex:1">${bars([45,70,55,85])}</div></div>
+      <div style="display:flex;gap:5px;height:16px"><div class="tile hi" style="flex:1"></div><div class="tile" style="flex:1"></div><div class="tile" style="flex:1"></div><div class="tile" style="flex:1"></div></div>
+    </div><span class="badge">63</span></div>`,
+
+  chat:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col side"><div class="b l"></div><div class="b m"></div><div class="b l aqua"></div><div class="b s"></div></div>
+    <div class="col">
+      <div style="display:flex;gap:5px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.18);flex:none"></span><div class="b m"></div></div>
+      <div style="border:1px solid rgba(255,180,84,.32);background:rgba(255,180,84,.09);border-radius:6px;padding:5px 6px">
+        <div class="term" style="padding:0;font-size:.48rem;line-height:1.7"><div><span class="y">BUY</span> XAUUSD @ 2418.40</div><div><span class="r">SL</span> 2412.0 · <span class="g">TP</span> 2431.5</div></div></div>
+      <div style="display:flex;gap:5px;align-items:center"><span style="width:11px;height:11px;border-radius:50%;background:rgba(79,227,193,.35);flex:none"></span><div class="b s"></div></div>
+      <div class="b l aqua" style="margin-top:auto"></div>
+    </div></div></div>`,
+
+  news:()=>`<div class="scr"><div class="scr-top"><i class="dot a"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col">
+      <div style="display:flex;gap:6px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:var(--rose);flex:none"></span><div class="b l"></div><span style="font-family:var(--mono);font-size:.45rem;color:var(--muted);flex:none">15:30</span></div>
+      <div style="display:flex;gap:6px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none"></span><div class="b m"></div><span style="font-family:var(--mono);font-size:.45rem;color:var(--muted);flex:none">17:00</span></div>
+      <div style="display:flex;gap:6px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);flex:none"></span><div class="b l"></div><span style="font-family:var(--mono);font-size:.45rem;color:var(--muted);flex:none">19:45</span></div>
+      <div class="term" style="padding:4px 0;flex:1"><div><span class="r">paused</span> high-impact window</div><div><span class="g">resume</span> in 12m · spread ok</div></div>
+    </div></div></div>`,
+
+  seo:()=>`<div class="scr"><div class="scr-top"><i class="dot c"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="col side" style="width:34%;justify-content:center;gap:3px">
+      <span style="font-family:var(--display);font-size:1.25rem;color:var(--aqua);line-height:1">94</span>
+      <span style="font-family:var(--mono);font-size:.45rem;letter-spacing:.12em;color:var(--muted)">PAGE SCORE</span></div>
+    <div class="col"><div class="b l aqua"></div><div class="b m"></div><div class="b l amber"></div><div class="b s"></div>
+      <div class="bars">${bars([30,45,60,72,88])}</div></div></div></div>`,
+
+  creative:()=>`<div class="scr"><div class="scr-top"><i class="dot b"></i><div class="url"></div></div>
+    <div class="scr-body"><div class="tiles two" style="gap:6px">
+      <div class="tile" style="background:linear-gradient(140deg,rgba(255,180,84,.32),rgba(255,138,91,.12))"></div>
+      <div class="tile" style="background:linear-gradient(140deg,rgba(79,227,193,.28),rgba(79,227,193,.06))"></div>
+      <div class="tile" style="background:linear-gradient(140deg,rgba(122,160,255,.26),rgba(122,160,255,.05))"></div>
+      <div class="tile" style="background:linear-gradient(140deg,rgba(255,107,122,.24),rgba(255,180,84,.10))"></div>
+    </div></div></div>`,
+
+  report:()=>`<div class="scr"><div class="scr-body" style="padding:10px 14px"><div class="sheet">
+    <div class="b s amber"></div>
+    <div class="bars" style="flex:1;align-items:flex-end">${bars([40,62,48,80,55,92],'bar')}</div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3px"><div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div><div class="b l"></div></div>
+  </div></div></div>`,
+};
+
+/* =====================================================================
+   RENDER CARDS + FILTERS
+   ===================================================================== */
+const grid = document.getElementById('workGrid');
+const filters = document.getElementById('filters');
+
+grid.innerHTML = PROJECTS.map(p=>`
+  <div class="card-shell rv" id="p-${p.id}" data-group="${p.group}">
+    <article class="card">
+      <div class="glare"></div>
+      <div class="card-lift">
+        ${(PREVIEWS[p.preview]||PREVIEWS.browser)()}
+        <div class="card-meta"><span class="card-cat">${p.cat}</span><span class="card-year">${p.year}</span></div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="tech">${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+        ${p.link?`<a class="card-link" href="${p.link}" target="_blank" rel="noopener">Visit live site →</a>`:''}
+      </div>
+    </article>
+  </div>`).join('');
+
+filters.innerHTML = GROUPS.map((g,i)=>`<button class="chip${i===0?' on':''}" data-group="${g.key}">${g.label}</button>`).join('');
+
+filters.addEventListener('click',e=>{
+  const chip = e.target.closest('.chip'); if(!chip) return;
+  filters.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  chip.classList.add('on');
+  const g = chip.dataset.group;
+  document.querySelectorAll('.card-shell').forEach(s=>{
+    s.style.display = (g==='all'||s.dataset.group===g) ? '' : 'none';
+  });
+});
+
+/* 3D tilt */
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce && window.matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.card-shell').forEach(shell=>{
+    const card = shell.querySelector('.card');
+    shell.addEventListener('mousemove',e=>{
+      const r = shell.getBoundingClientRect();
+      const px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+      card.style.transform = `rotateY(${(px-.5)*9}deg) rotateX(${(.5-py)*9}deg) translateY(-6px)`;
+      card.style.setProperty('--mx',px*100+'%');
+      card.style.setProperty('--my',py*100+'%');
+    });
+    shell.addEventListener('mouseleave',()=>{ card.style.transform=''; });
+  });
+}
+
+/* Reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+},{threshold:.12,rootMargin:'0px 0px -40px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=(i%3)*70+'ms'; io.observe(el); });
+
+/* Nav */
+const nav = document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>20),{passive:true});
+const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
+  const open = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded',open);
+});
+navLinks.addEventListener('click',e=>{ if(e.target.tagName==='A') navLinks.classList.remove('open'); });
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* =====================================================================
+   SIGNATURE — 3D project constellation
+   ===================================================================== */
+(function(){
+  const canvas = document.getElementById('constellation');
+  const holder = document.getElementById('orb');
+  const labelEl = document.getElementById('orbLabel');
+  if(!window.THREE || reduce){ return; }
+
+  document.getElementById('orbFallback').style.display='none';
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45,1,0.1,100);
+  camera.position.z = 7;
+  const renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // circular sprite texture
+  function disc(color){
+    const c = document.createElement('canvas'); c.width=c.height=64;
+    const g = c.getContext('2d'); const gr = g.createRadialGradient(32,32,0,32,32,32);
+    gr.addColorStop(0,color); gr.addColorStop(.4,color); gr.addColorStop(1,'rgba(0,0,0,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(32,32,32,0,Math.PI*2); g.fill();
+    return new THREE.CanvasTexture(c);
+  }
+
+  // Fibonacci sphere placement — one node per project
+  const N = PROJECTS.length, R = 2.6, nodes = [];
+  for(let i=0;i<N;i++){
+    const y = 1 - (i/(N-1))*2;
+    const r = Math.sqrt(Math.max(0,1-y*y));
+    const th = Math.PI*(3-Math.sqrt(5))*i;
+    nodes.push(new THREE.Vector3(Math.cos(th)*r*R, y*R, Math.sin(th)*r*R));
+  }
+
+  const pos = new Float32Array(N*3), col = new Float32Array(N*3);
+  const cAmber = new THREE.Color('#FFB454'), cAqua = new THREE.Color('#4FE3C1');
+  nodes.forEach((v,i)=>{
+    pos[i*3]=v.x; pos[i*3+1]=v.y; pos[i*3+2]=v.z;
+    const c = (PROJECTS[i].group==='trading'||PROJECTS[i].group==='ai') ? cAmber : cAqua;
+    col[i*3]=c.r; col[i*3+1]=c.g; col[i*3+2]=c.b;
+  });
+  const pg = new THREE.BufferGeometry();
+  pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  pg.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const points = new THREE.Points(pg,new THREE.PointsMaterial({
+    size:.26,map:disc('#ffffff'),vertexColors:true,transparent:true,
+    depthWrite:false,sizeAttenuation:true
+  }));
+  group.add(points);
+
+  // connect each node to its 2 nearest neighbours
+  const seg = [];
+  nodes.forEach((v,i)=>{
+    const d = nodes.map((o,j)=>({j,d:v.distanceTo(o)})).filter(o=>o.j!==i).sort((a,b)=>a.d-b.d).slice(0,2);
+    d.forEach(o=>{ seg.push(v.x,v.y,v.z, nodes[o.j].x,nodes[o.j].y,nodes[o.j].z); });
+  });
+  const lg = new THREE.BufferGeometry();
+  lg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(seg),3));
+  group.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x7FA0C8,transparent:true,opacity:.22})));
+
+  // faint dust for depth
+  const dn = 260, dp = new Float32Array(dn*3);
+  for(let i=0;i<dn;i++){
+    const rr = 3.4+Math.random()*3.2, t=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
+    dp[i*3]=rr*Math.sin(ph)*Math.cos(t); dp[i*3+1]=rr*Math.sin(ph)*Math.sin(t); dp[i*3+2]=rr*Math.cos(ph);
+  }
+  const dg = new THREE.BufferGeometry(); dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+  scene.add(new THREE.Points(dg,new THREE.PointsMaterial({size:.045,color:0x9FB6D6,transparent:true,opacity:.5,depthWrite:false})));
+
+  // hover glow
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({map:disc('rgba(255,255,255,.85)'),transparent:true,opacity:.85,depthWrite:false}));
+  glow.scale.set(.62,.62,.62); glow.visible=false; group.add(glow);
+
+  const ray = new THREE.Raycaster(); ray.params.Points.threshold = .20;
+  const mouse = new THREE.Vector2(-9,-9);
+  let hovered = -1, tX=0, tY=0;
+
+  function resize(){
+    const s = holder.clientWidth;
+    renderer.setSize(s,s,false);
+    camera.aspect = 1; camera.updateProjectionMatrix();
+  }
+  resize(); addEventListener('resize',resize);
+
+  holder.addEventListener('mousemove',e=>{
+    const r = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX-r.left)/r.width)*2-1;
+    mouse.y = -((e.clientY-r.top)/r.height)*2+1;
+    tY = mouse.x*.35; tX = -mouse.y*.28;
+  });
+  holder.addEventListener('mouseleave',()=>{ mouse.set(-9,-9); tX=tY=0; });
+  holder.addEventListener('click',()=>{
+    if(hovered<0) return;
+    const el = document.getElementById('p-'+PROJECTS[hovered].id);
+    if(!el) return;
+    document.querySelector('.chip[data-group="all"]').click();
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'),1600);
+  });
+
+  let running = true;
+  document.addEventListener('visibilitychange',()=>{ running = !document.hidden; if(running) loop(); });
+
+  function loop(){
+    if(!running) return;
+    requestAnimationFrame(loop);
+    group.rotation.y += .0022 + tY * .0016;
+    group.rotation.x += (tX - group.rotation.x) * .045;
+
+    ray.setFromCamera(mouse,camera);
+    const hit = ray.intersectObject(points);
+    const idx = hit.length ? hit[0].index : -1;
+    if(idx !== hovered){
+      hovered = idx;
+      if(idx>=0){
+        const p = PROJECTS[idx];
+        labelEl.querySelector('b').textContent = p.title;
+        labelEl.querySelector('span').textContent = p.cat;
+        labelEl.classList.add('on');
+        glow.visible = true;
+        canvas.style.cursor='pointer';
+      } else {
+        labelEl.classList.remove('on'); glow.visible=false; canvas.style.cursor='grab';
+      }
+    }
+    if(hovered>=0){
+      glow.position.copy(nodes[hovered]);
+      const w = nodes[hovered].clone().applyMatrix4(group.matrixWorld).project(camera);
+      const r = canvas.getBoundingClientRect();
+      labelEl.style.left = ((w.x*.5+.5)*r.width)+'px';
+      labelEl.style.top  = ((-w.y*.5+.5)*r.height)+'px';
+    }
+    renderer.render(scene,camera);
+  }
+  loop();
+})();
+</script>
+</body>
+</html>
