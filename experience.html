@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Yasir Qasmi — Interactive 3D</title>
+<meta name="theme-color" content="#080D18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#080D18; --ink:#EAF0FA; --muted:#8CA0C0;
+  --amber:#FFB454; --aqua:#4FE3C1;
+  --edge:rgba(255,255,255,.12);
+  color-scheme:dark;
+  --display:'Chakra Petch',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--void);color:var(--ink);font-family:var(--body)}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+canvas.dragging{cursor:grabbing}
+
+.aura{position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(700px 700px at 50% 48%,rgba(255,180,84,.10),transparent 62%),
+             radial-gradient(900px 700px at 15% 85%,rgba(79,227,193,.07),transparent 60%);}
+.vign{position:fixed;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(circle at 50% 50%,transparent 45%,rgba(4,7,14,.75) 100%)}
+
+.ui{position:fixed;inset:0;z-index:5;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:34px clamp(20px,4vw,54px) 30px}
+.ui > *{pointer-events:auto}
+
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.name{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4vw,2.6rem);line-height:1;letter-spacing:-.02em}
+.name small{display:block;font-family:var(--mono);font-size:.66rem;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.back{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--edge);border-radius:9px;padding:10px 15px;text-decoration:none;transition:.25s;backdrop-filter:blur(8px)}
+.back:hover{color:var(--ink);border-color:var(--amber)}
+
+.mid{position:fixed;left:clamp(20px,4vw,54px);top:50%;transform:translateY(-50%);z-index:5;pointer-events:none;max-width:min(340px,42vw)}
+.shape-idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--amber)}
+.shape-name{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.05;margin:8px 0 10px;letter-spacing:-.015em}
+.shape-note{font-size:.9rem;color:var(--muted);line-height:1.55}
+.fade{opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
+.fade.on{opacity:1;transform:none}
+
+.bottom{display:flex;flex-direction:column;gap:18px;align-items:center}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pill{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  background:rgba(10,16,28,.55);border:1px solid var(--edge);border-radius:999px;padding:9px 15px;cursor:pointer;
+  transition:.22s;backdrop-filter:blur(10px)}
+.pill:hover{color:var(--ink);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.pill.on{background:var(--amber);border-color:var(--amber);color:#0A0F1C;font-weight:500}
+.hint{font-family:var(--mono);font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(140,160,192,.7);text-align:center}
+.hint b{color:var(--aqua);font-weight:400}
+
+.load{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:var(--void);transition:opacity .8s;font-family:var(--mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.load.gone{opacity:0;pointer-events:none}
+.fail{position:fixed;inset:0;z-index:30;display:none;place-items:center;text-align:center;padding:30px}
+
+@media(max-width:820px){
+  .mid{position:static;transform:none;max-width:none;margin-bottom:auto;padding-top:26px}
+  .ui{padding:22px 20px 22px}
+  .shape-note{display:none}
+}
+@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+<div class="aura"></div>
+<div class="vign"></div>
+
+<div class="ui">
+  <div class="top">
+    <h1 class="name">YASIR QASMI<small>Software · Web · AI automation</small></h1>
+    <a class="back" href="index.html">← Portfolio</a>
+  </div>
+
+  <div class="mid">
+    <span class="shape-idx" id="sIdx">01 / 06</span>
+    <h2 class="shape-name fade on" id="sName">Signature</h2>
+    <p class="shape-note fade on" id="sNote">Twenty-four thousand particles, one system.</p>
+  </div>
+
+  <div class="bottom">
+    <div class="pills" id="pills"></div>
+    <p class="hint">Drag to rotate · <b>Move cursor</b> to push · Scroll to zoom</p>
+  </div>
+</div>
+
+<div class="load" id="load">Assembling particles</div>
+<div class="fail" id="fail"><div><h2 style="font-family:var(--display)">3D not available</h2><p style="color:var(--muted);margin-top:10px">This browser can't run WebGL. Try Chrome or Edge on desktop.</p></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const COUNT = 24000;
+
+const SHAPES = [
+  { key:'text',   label:'Signature', note:'Twenty-four thousand particles holding a name — drag them and they hold formation.' },
+  { key:'sphere', label:'Platforms', note:'A closed system: every point on the surface reachable from every other. Like a database with the right indexes.' },
+  { key:'wave',   label:'Markets',   note:'A price surface breathing in real time — the shape my trading robots read before they act.' },
+  { key:'helix',  label:'Pipelines', note:'Two strands, one flow. Data in, cleaned, transformed, out the other end.' },
+  { key:'knot',   label:'Automation',note:'A path that never repeats and never breaks — that is what a good script looks like.' },
+  { key:'galaxy', label:'Portfolio', note:'Twenty-three shipped projects, spinning around the same centre of gravity.' },
+];
+
+const el = id => document.getElementById(id);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- shape generators (all return Float32Array of COUNT*3) ---------- */
+const rand = (a,b)=>a+Math.random()*(b-a);
+
+function sphere(){
+  const a = new Float32Array(COUNT*3), R = 2.85;
+  for(let i=0;i<COUNT;i++){
+    const y = 1-(i/(COUNT-1))*2, r = Math.sqrt(Math.max(0,1-y*y));
+    const th = Math.PI*(3-Math.sqrt(5))*i, rr = R*(1+rand(-.012,.012));
+    a[i*3]=Math.cos(th)*r*rr; a[i*3+1]=y*rr; a[i*3+2]=Math.sin(th)*r*rr;
+  }
+  return a;
+}
+function wave(){
+  const a = new Float32Array(COUNT*3), side = Math.ceil(Math.sqrt(COUNT)), S=7.2;
+  for(let i=0;i<COUNT;i++){
+    const gx=i%side, gz=Math.floor(i/side);
+    const x=(gx/side-.5)*S, z=(gz/side-.5)*S;
+    const d=Math.sqrt(x*x+z*z);
+    const y=Math.sin(d*1.5)*0.75/(1+d*0.35)+Math.sin(x*1.1)*0.28+Math.cos(z*.9)*0.24;
+    a[i*3]=x; a[i*3+1]=y; a[i*3+2]=z;
+  }
+  return a;
+}
+function helix(){
+  const a = new Float32Array(COUNT*3), turns=4.2, H=6.2, R=1.5;
+  for(let i=0;i<COUNT;i++){
+    const t=i/COUNT, strand=i%3;
+    const ang=t*Math.PI*2*turns, y=(t-.5)*H;
+    if(strand<2){
+      const off=strand*Math.PI, r=R*(1+rand(-.05,.05));
+      a[i*3]=Math.cos(ang+off)*r; a[i*3+1]=y; a[i*3+2]=Math.sin(ang+off)*r;
+    }else{ // rungs
+      const k=rand(-1,1)*R;
+      a[i*3]=Math.cos(ang)*k; a[i*3+1]=y+rand(-.02,.02); a[i*3+2]=Math.sin(ang)*k;
+    }
+  }
+  return a;
+}
+function knot(){
+  const a = new Float32Array(COUNT*3), p=2,q=3, S=1.05;
+  for(let i=0;i<COUNT;i++){
+    const u=(i/COUNT)*Math.PI*2*p;
+    const r=(2+Math.cos(q*u/p))*S;
+    const x=r*Math.cos(u), y=r*Math.sin(u), z=Math.sin(q*u/p)*S*1.6;
+    const j=.34;
+    a[i*3]=x+rand(-j,j); a[i*3+1]=y+rand(-j,j); a[i*3+2]=z+rand(-j,j);
+  }
+  return a;
+}
+function galaxy(){
+  const a = new Float32Array(COUNT*3), arms=4, R=3.6;
+  for(let i=0;i<COUNT;i++){
+    const t=Math.pow(Math.random(),.62), r=t*R;
+    const arm=(i%arms)/arms*Math.PI*2;
+    const ang=arm+r*1.15+rand(-.16,.16);
+    const spread=(1-t)*.55+.12;
+    a[i*3]=Math.cos(ang)*r+rand(-spread,spread);
+    a[i*3+1]=rand(-spread,spread)*.42;
+    a[i*3+2]=Math.sin(ang)*r+rand(-spread,spread);
+  }
+  return a;
+}
+function textShape(str){
+  const W=900,H=260,cv=document.createElement('canvas');
+  cv.width=W; cv.height=H;
+  const g=cv.getContext('2d');
+  g.fillStyle='#fff'; g.textAlign='center'; g.textBaseline='middle';
+  g.font='700 150px "Chakra Petch", system-ui, sans-serif';
+  g.fillText(str,W/2,H/2+6);
+  const d=g.getImageData(0,0,W,H).data, pts=[];
+  for(let y=0;y<H;y+=2) for(let x=0;x<W;x+=2){
+    if(d[(y*W+x)*4+3]>128) pts.push([x,y]);
+  }
+  const a=new Float32Array(COUNT*3), SC=8.4/W;
+  if(!pts.length) return sphere();
+  for(let i=0;i<COUNT;i++){
+    const p=pts[(Math.random()*pts.length)|0];
+    a[i*3]=(p[0]-W/2)*SC+rand(-.012,.012);
+    a[i*3+1]=-(p[1]-H/2)*SC+rand(-.012,.012);
+    a[i*3+2]=rand(-.18,.18);
+  }
+  return a;
+}
+
+/* ---------- three.js ---------- */
+let renderer,scene,camera,geo,mat,pts,grid;
+let posArr,tgtArr,mixT=1,morphing=false,cur=0,next=0;
+let rotX=-.12,rotY=0,velX=0,velY=0,dragging=false,lastX=0,lastY=0;
+let camZ=8.4,targetZ=8.4,mouseNDC={x:0,y:0},lastInteract=0,clock=null;
+
+function build(){
+  const canvas=el('c');
+  try{
+    renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+  }catch(e){ el('fail').style.display='grid'; el('load').classList.add('gone'); return false; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setClearColor(0x080D18,1);
+
+  scene=new THREE.Scene();
+  scene.fog=new THREE.FogExp2(0x080D18,.055);
+  camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,120);
+  camera.position.z=camZ;
+
+  // depth cue floor
+  grid=new THREE.GridHelper(34,34,0x2A3E60,0x1A2740);
+  grid.material.transparent=true; grid.material.opacity=.28; grid.position.y=-4.2;
+  scene.add(grid);
+
+  posArr=textShape('YASIR');
+  tgtArr=posArr.slice();
+  const rnd=new Float32Array(COUNT), seed=new Float32Array(COUNT);
+  for(let i=0;i<COUNT;i++){ rnd[i]=Math.random(); seed[i]=Math.random(); }
+
+  geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(posArr,3));
+  geo.setAttribute('aTarget',new THREE.BufferAttribute(tgtArr,3));
+  geo.setAttribute('aRand',new THREE.BufferAttribute(rnd,1));
+  geo.setAttribute('aSeed',new THREE.BufferAttribute(seed,1));
+
+  mat=new THREE.ShaderMaterial({
+    transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+    uniforms:{
+      uMix:{value:1}, uTime:{value:0}, uSize:{value:2.0},
+      uPR:{value:Math.min(devicePixelRatio,2)},
+      uMouse:{value:new THREE.Vector2(999,999)},
+      uAmber:{value:new THREE.Color('#FFB454')},
+      uAqua:{value:new THREE.Color('#4FE3C1')},
+      uWhite:{value:new THREE.Color('#FFF3DE')}
+    },
+    vertexShader:`
+      attribute vec3 aTarget; attribute float aRand; attribute float aSeed;
+      uniform float uMix,uTime,uSize,uPR; uniform vec2 uMouse;
+      uniform vec3 uAmber,uAqua,uWhite;
+      varying vec3 vColor; varying float vAlpha;
+      void main(){
+        float d = clamp((uMix - aRand*0.34) / 0.66, 0.0, 1.0);
+        float e = d*d*(3.0-2.0*d);
+        vec3 p = mix(position, aTarget, e);
+
+        // swirl outward mid-transition
+        float burst = sin(e*3.14159265);
+        vec3 dir = normalize(p + vec3(0.0001));
+        p += dir * burst * (0.55 + aSeed*1.25);
+        p.y += burst * sin(aSeed*31.4) * 0.5;
+
+        // idle breathing
+        p += dir * sin(uTime*0.7 + aSeed*24.0) * 0.035;
+
+        vec4 mv = modelViewMatrix * vec4(p,1.0);
+
+        // cursor push
+        vec2 diff = mv.xy - uMouse;
+        float dist = length(diff);
+        float force = 1.0 - smoothstep(0.0, 2.1, dist);
+        mv.xy += normalize(diff + vec2(0.0001)) * force * 1.15;
+
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPR * (8.0 / max(-mv.z, 0.6)) * (1.0 + burst*0.55 + force*1.6);
+
+        vec3 base = mix(uAmber, uAqua, clamp(aSeed*0.7 + p.y*0.14 + 0.35, 0.0, 1.0));
+        vColor = mix(base, uWhite, burst*0.65 + force*0.55);
+        vAlpha = 0.32 + burst*0.35 + force*0.4 + aSeed*0.18;
+      }`,
+    fragmentShader:`
+      varying vec3 vColor; varying float vAlpha;
+      void main(){
+        vec2 uv = gl_PointCoord - 0.5;
+        float r = length(uv);
+        if(r > 0.5) discard;
+        float a = 1.0 - smoothstep(0.02, 0.5, r);
+        gl_FragColor = vec4(vColor, a*vAlpha);
+      }`
+  });
+
+  pts=new THREE.Points(geo,mat);
+  scene.add(pts);
+  clock=new THREE.Clock();
+  return true;
+}
+
+/* ---------- morphing ---------- */
+const GEN={ text:()=>textShape('YASIR'), sphere, wave, helix, knot, galaxy };
+
+function finish(){
+  posArr.set(tgtArr);
+  geo.attributes.position.needsUpdate=true;
+  mixT=1; morphing=false;
+}
+function goTo(i,userDriven){
+  if(i===cur && !morphing) return;
+  if(morphing) finish();
+  next=i;
+  tgtArr.set(GEN[SHAPES[i].key]());
+  geo.attributes.aTarget.needsUpdate=true;
+  mixT=0; morphing=true; cur=i;
+  if(userDriven) lastInteract=performance.now();
+  paintUI(i);
+}
+function paintUI(i){
+  el('sIdx').textContent = String(i+1).padStart(2,'0')+' / '+String(SHAPES.length).padStart(2,'0');
+  const n=el('sName'), t=el('sNote');
+  n.classList.remove('on'); t.classList.remove('on');
+  setTimeout(()=>{
+    n.textContent=SHAPES[i].label; t.textContent=SHAPES[i].note;
+    n.classList.add('on'); t.classList.add('on');
+  },220);
+  document.querySelectorAll('.pill').forEach((p,k)=>p.classList.toggle('on',k===i));
+}
+
+/* ---------- input ---------- */
+function bindInput(){
+  const c=el('c');
+  const down=e=>{ dragging=true; c.classList.add('dragging'); lastX=e.clientX; lastY=e.clientY; lastInteract=performance.now(); };
+  const up=()=>{ dragging=false; c.classList.remove('dragging'); };
+  const move=e=>{
+    const nx=(e.clientX/innerWidth)*2-1, ny=-(e.clientY/innerHeight)*2+1;
+    mouseNDC.x=nx; mouseNDC.y=ny;
+    if(dragging){
+      velY+=(e.clientX-lastX)*.00042;
+      velX+=(e.clientY-lastY)*.00034;
+      lastX=e.clientX; lastY=e.clientY;
+    }
+  };
+  addEventListener('pointerdown',down);
+  addEventListener('pointerup',up);
+  addEventListener('pointercancel',up);
+  addEventListener('pointermove',move,{passive:true});
+  addEventListener('wheel',e=>{
+    targetZ=Math.min(14,Math.max(5,targetZ+e.deltaY*.0022));
+    lastInteract=performance.now();
+  },{passive:true});
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight') goTo((cur+1)%SHAPES.length,true);
+    if(e.key==='ArrowLeft') goTo((cur-1+SHAPES.length)%SHAPES.length,true);
+  });
+  addEventListener('resize',()=>{
+    camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth,innerHeight,false);
+  });
+}
+
+/* ---------- loop ---------- */
+function loop(){
+  requestAnimationFrame(loop);
+  const dt=Math.min(clock.getDelta(),.05), t=clock.elapsedTime;
+
+  if(morphing){
+    mixT+=dt/1.55;
+    if(mixT>=1) finish();
+    mat.uniforms.uMix.value=Math.min(mixT,1);
+  }
+
+  if(!dragging){ velY+=(0.0016-velY)*.02; }
+  rotY+=velY; rotX+=velX;
+  velX*=.93; velY*=.945;
+  rotX=Math.max(-1.05,Math.min(1.05,rotX));
+  pts.rotation.set(rotX,rotY,0);
+  grid.rotation.y=rotY*.35;
+
+  camZ+=(targetZ-camZ)*.06;
+  camera.position.z=camZ;
+
+  // cursor position in view space at focal plane
+  const h=2*Math.tan((camera.fov*Math.PI/180)/2)*camZ;
+  mat.uniforms.uMouse.value.set(mouseNDC.x*h*camera.aspect/2, mouseNDC.y*h/2);
+  mat.uniforms.uTime.value=t;
+
+  // auto-cycle when idle
+  if(!morphing && performance.now()-lastInteract>7200){
+    goTo((cur+1)%SHAPES.length,false);
+    lastInteract=performance.now();
+  }
+
+  renderer.render(scene,camera);
+}
+
+/* ---------- boot ---------- */
+(async function(){
+  el('pills').innerHTML=SHAPES.map((s,i)=>`<button class="pill${i===0?' on':''}" data-i="${i}">${s.label}</button>`).join('');
+  el('pills').addEventListener('click',e=>{
+    const b=e.target.closest('.pill'); if(b) goTo(+b.dataset.i,true);
+  });
+
+  if(document.fonts && document.fonts.ready){ try{ await document.fonts.ready; }catch(e){} }
+  if(!window.THREE){ el('fail').style.display='grid'; el('load').classList.add('gone'); return; }
+  if(!build()) return;
+
+  renderer.setSize(innerWidth,innerHeight,false);
+  bindInput();
+  paintUI(0);
+  lastInteract=performance.now();
+  loop();
+  setTimeout(()=>el('load').classList.add('gone'),380);
+
+  if(reduce){ /* keep it still: no auto-cycle drift */ lastInteract=Infinity; }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Yasir Nasir Qasmi — Resume</title>
+<meta name="description" content="Resume of Yasir Nasir Qasmi, software engineer and data controller based in Jeddah, Saudi Arabia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F5; --sheet:#FFFFFF; --sunk:#E9EDF2;
+  --ink:#0D1626; --soft:#46536B; --faint:#7A8699;
+  --line:rgba(13,22,38,.14); --line-soft:rgba(13,22,38,.08);
+  --pine:#0B5D4E;
+  color-scheme:light dark;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --text:'Inter Tight',system-ui,sans-serif;
+  --code:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0F151E; --sheet:#141C27; --sunk:#1B2431;
+    --ink:#E9EEF5; --soft:#A6B3C6; --faint:#7B899E;
+    --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+    --pine:#3FBF9E;
+  }
+  .btn.fill{color:#06231C}
+  .btn.fill:hover{background:#63D4B4;color:#06231C}
+  .sheet{box-shadow:0 24px 60px -44px #000}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.52;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px}
+
+/* screen chrome */
+.bar{position:sticky;top:0;z-index:9;background:rgba(238,241,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:830px;margin:0 auto;padding:11px 18px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.bar span{font-family:var(--code);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.bar div{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-family:var(--code);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--ink);border-radius:7px;padding:9px 14px;cursor:pointer;background:transparent;color:var(--ink);transition:.2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.fill{background:var(--pine);border-color:var(--pine);color:#fff}
+.btn.fill:hover{background:#094A3F;color:#fff}
+
+.sheet{max-width:830px;margin:22px auto;background:var(--sheet);border:1px solid var(--line);
+  padding:44px 48px 48px;box-shadow:0 24px 60px -44px rgba(13,22,38,.6)}
+
+/* head */
+.head{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-start;
+  border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:22px}
+h1{font-family:var(--display);font-weight:700;font-size:2.4rem;letter-spacing:-.03em;line-height:1}
+.idcard{display:flex;gap:16px;align-items:center}
+.idcard img{width:96px;height:96px;flex:none;border-radius:10px;object-fit:cover;
+  border:1px solid var(--line);background:var(--sunk)}
+.role{font-family:var(--code);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pine);margin-top:9px}
+.contact{text-align:right;font-family:var(--code);font-size:.73rem;line-height:2;color:var(--soft)}
+.contact a:hover{color:var(--pine)}
+
+/* sections */
+section{margin-top:24px;page-break-inside:auto}
+h2{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--faint);padding-bottom:7px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.summary{color:var(--soft);max-width:74ch}
+
+.job{display:grid;grid-template-columns:1fr auto;gap:4px 18px;margin-bottom:17px;page-break-inside:avoid}
+.job:last-child{margin-bottom:0}
+.job h3{font-family:var(--display);font-weight:600;font-size:1.03rem;letter-spacing:-.01em}
+.job .org{color:var(--pine);font-size:.9rem;font-weight:500}
+.job .when{font-family:var(--code);font-size:.7rem;color:var(--faint);text-align:right;white-space:nowrap;padding-top:3px}
+.job ul{grid-column:1/-1;list-style:none;margin-top:7px}
+.job li{position:relative;padding-left:15px;color:var(--soft);font-size:.91rem;margin-bottom:4px}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1.5px;background:var(--pine)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.pj{page-break-inside:avoid}
+.pj b{font-family:var(--display);font-weight:600;font-size:.96rem;display:block}
+.pj .stack{font-family:var(--code);font-size:.66rem;color:var(--pine);letter-spacing:.05em;margin:2px 0 3px}
+.pj p{font-size:.86rem;color:var(--soft)}
+
+.skills{display:grid;grid-template-columns:150px 1fr;gap:9px 16px;font-size:.89rem}
+.skills dt{font-family:var(--code);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+.skills dd{color:var(--soft)}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-family:var(--code);font-size:.68rem;color:var(--soft);border:1px solid var(--line);border-radius:5px;padding:5px 9px;background:var(--sunk)}
+
+.foot{margin-top:26px;padding-top:12px;border-top:1px solid var(--line-soft);
+  font-family:var(--code);font-size:.66rem;letter-spacing:.06em;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:720px){
+  .sheet{padding:28px 22px 34px;margin:12px auto;border-left:0;border-right:0}
+  .head{flex-direction:column}
+  .idcard img{width:74px;height:74px}
+  .contact{text-align:left}
+  h1{font-size:1.9rem}
+  .two{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:2px 0}
+  .skills dd{margin-bottom:9px}
+  .job{grid-template-columns:1fr}
+  .job .when{text-align:left;padding-top:2px}
+}
+
+@page{size:A4;margin:13mm 12mm}
+@media print{
+  :root{--paper:#fff;--sheet:#fff;--sunk:#EEF1F5;--ink:#0D1626;--soft:#46536B;--faint:#7A8699;
+    --line:rgba(13,22,38,.14);--line-soft:rgba(13,22,38,.08);--pine:#0B5D4E}
+  body{background:#fff;color:#0D1626;font-size:10.4pt}
+  .idcard img{width:26mm;height:26mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bar{display:none}
+  .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none}
+  h1{font-size:26pt}
+  section{margin-top:15px}
+  .job li{font-size:9.6pt}
+  .pj p{font-size:9.2pt}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <span>Resume · Yasir Nasir Qasmi</span>
+    <div>
+      <a class="btn" href="index.html">← Portfolio</a>
+      <button class="btn fill" onclick="window.print()">Download PDF</button>
+    </div>
+  </div>
+</div>
+
+<article class="sheet">
+
+  <header class="head">
+    <div class="idcard">
+      <img src="yasir-resume.jpg" width="640" height="800" alt="Portrait of Yasir Nasir Qasmi">
+      <div>
+        <h1>Yasir Nasir Qasmi</h1>
+        <p class="role">Software Engineer · Data &amp; Reporting</p>
+      </div>
+    </div>
+    <div class="contact">
+      Jeddah, Saudi Arabia · Transferable Iqama<br>
+      <a href="mailto:you@example.com">you@example.com</a><br>
+      <a href="https://wa.me/966500000000">+966 5X XXX XXXX</a><br>
+      <a href="https://www.linkedin.com/in/your-profile">linkedin.com/in/your-profile</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p class="summary">Software engineer with five years building and shipping complete systems — schema, backend, interface and deployment — alongside a full-time data and reporting role. I work across PHP/MySQL web platforms, Python and Claude-based automation, MQL5 trading systems, and Power BI reporting. Most of my projects are built end to end for a single owner: I design the data model, write the code, deploy it, and hand over documentation. Microsoft PL-300 certified, comfortable working bilingually in English and Urdu with basic Arabic.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div>
+        <h3>Senior Data Controller</h3>
+        <p class="org">Fazco Technology &amp; Data Solutions — Jeddah, KSA</p>
+      </div>
+      <span class="when">Jul 2022 — Present</span>
+      <ul>
+        <li>Own operational data across the business: cleaning, validation and modelling of source data used for daily and monthly reporting.</li>
+        <li>Built Power BI dashboards and scheduled refreshes that replaced manual spreadsheet reporting, cutting report preparation from hours to minutes.</li>
+        <li>Developed internal tools in PHP/MySQL — a warehouse document dispatch tracker with trip management and status reporting, a rice price list manager with role-based access and VAT handling, and a medical store POS with barcode scanning, supplier payments and customer credit ledgers.</li>
+        <li>Built and maintain the company website and its full admin panel: products, categories, brands, banners, reviews, messages, users and admin/editor role separation.</li>
+        <li>Produce bilingual Arabic/English business documentation — supply agreements, partnership terms and client proposals.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div>
+        <h3>Senior Data Analyst</h3>
+        <p class="org">Mas Al Qudra Contracting Company — KSA</p>
+      </div>
+      <span class="when">2021 — 2022</span>
+      <ul>
+        <li>Consolidated project and cost data from multiple site sources into a single reporting structure for management review.</li>
+        <li>Built recurring Excel and SQL reports for project progress, manpower and expenditure tracking.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div>
+        <h3>Data Analyst</h3>
+        <p class="org">PTCL — Pakistan</p>
+      </div>
+      <span class="when">2019 — 2021</span>
+      <ul>
+        <li>Handled large operational datasets for service and subscriber reporting, including validation and exception handling.</li>
+        <li>Automated repetitive reporting tasks with scripts and Excel tooling, reducing manual data entry across the team.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div>
+        <h3>Freelance Software Developer</h3>
+        <p class="org">Independent — clients in KSA &amp; Pakistan</p>
+      </div>
+      <span class="when">2019 — Present</span>
+      <ul>
+        <li>Delivered 20+ production systems: classifieds marketplaces, job portals, POS and inventory systems, document toolkits, Chrome extensions, mobile apps and MetaTrader 5 trading robots.</li>
+        <li>Handle the full engagement — scoping, fixed-price quoting, milestone delivery, deployment to client hosting, and handover with source and documentation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <div class="two">
+      <div class="pj">
+        <b>Expatriates KSA</b>
+        <p class="stack">PHP 8.3 · MariaDB · SEO</p>
+        <p>Classifieds marketplace with category and city search, ad posting, moderation queue, forum and a Search Console-ready SEO layer.</p>
+      </div>
+      <div class="pj">
+        <b>XAUUSD Analysis Terminal</b>
+        <p class="stack">React · Claude API · Web search</p>
+        <p>Terminal that pulls live market context, runs it through an LLM with web search, and returns structured gold analysis with saved history.</p>
+      </div>
+      <div class="pj">
+        <b>MT5 Expert Advisors</b>
+        <p class="stack">MQL5 · MetaTrader 5</p>
+        <p>Scalping and martingale robots with lot caps, drawdown limits, news-window pausing and auto-stop after a losing streak.</p>
+      </div>
+      <div class="pj">
+        <b>Smart Bidding Assistant</b>
+        <p class="stack">Chrome MV3 · JavaScript · Claude API</p>
+        <p>Browser extension that reads a job post, drafts a tailored proposal and tracks bids — delivered with a milestone client contract.</p>
+      </div>
+      <div class="pj">
+        <b>Medical Store POS</b>
+        <p class="stack">PHP · MySQL · Barcode</p>
+        <p>Retail point of sale with barcode scanning, pack/piece handling, supplier payments, customer credit ledgers and warehouse stock transfers.</p>
+      </div>
+      <div class="pj">
+        <b>OneTapVPN</b>
+        <p class="stack">Flutter · WireGuard · VPS</p>
+        <p>Android VPN client with one-tap connect and server list, backed by a self-hosted WireGuard server, packaged for Play Store release.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>PHP, JavaScript, Python, SQL, MQL5, Pine Script, Dart, HTML/CSS</dd>
+      <dt>Backend</dt><dd>PHP 8.3, MySQL/MariaDB, PDO &amp; prepared statements, REST APIs, session and role-based auth, bcrypt, CSRF protection, cron scheduling</dd>
+      <dt>Frontend</dt><dd>Vanilla JS (ES6+), React, React Native, Three.js, responsive CSS, Tailwind, PWA</dd>
+      <dt>Data &amp; BI</dt><dd>Power BI (PL-300), Excel &amp; Power Query, SQL reporting, data cleaning and ETL, Tableau, Azure Data fundamentals</dd>
+      <dt>AI &amp; automation</dt><dd>Claude API, prompt engineering, Chrome Extensions (MV3), Python automation, web scraping, FFmpeg pipelines</dd>
+      <dt>Trading tech</dt><dd>MT5 Expert Advisors, risk and lot management, strategy backtesting, TradingView indicators, XAUUSD technical analysis</dd>
+      <dt>Deployment</dt><dd>Hostinger &amp; cPanel, Linux VPS, Git/GitHub, domain and DNS, SSL, performance tuning</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education &amp; certifications</h2>
+    <div class="two" style="margin-bottom:12px">
+      <div class="pj">
+        <b>B.S. Software Engineering</b>
+        <p class="stack">Virtual University of Pakistan</p>
+      </div>
+      <div class="pj">
+        <b>Languages</b>
+        <p class="stack">English · Urdu · Hindi · Arabic (basic)</p>
+      </div>
+    </div>
+    <div class="chips">
+      <span>Microsoft PL-300 — Power BI Data Analyst</span>
+      <span>Microsoft Azure Data Engineer</span>
+      <span>Google Data Analytics</span>
+      <span>Tableau</span>
+      <span>CompTIA A+</span>
+      <span>WordPress &amp; SEO</span>
+      <span>E-Commerce</span>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>Yasir Nasir Qasmi — Jeddah, Saudi Arabia</span>
+    <span>References available on request</span>
+  </div>
+
+</article>
+
+<script>
+if(new URLSearchParams(location.search).get('print') === '1'){
+  addEventListener('load',()=>setTimeout(()=>window.print(),450));
+}
+</script>
+</body>
+</html>
