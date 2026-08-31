@@ -116,7 +116,9 @@ h2{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.18em;
   h1{font-size:26pt}
   section{margin-top:15px}
   .job li{font-size:9.6pt}
-  .pj p{font-size:9.2pt}
+  .pj p{font-size:9pt}
+  .two{gap:9px 22px}
+  .pj .stack{font-size:7.6pt}
   a{color:inherit}
 }
 </style>
@@ -169,6 +171,7 @@ h2{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.18em;
         <li>Own operational data across the business: cleaning, validation and modelling of source data used for daily and monthly reporting.</li>
         <li>Built Power BI dashboards and scheduled refreshes that replaced manual spreadsheet reporting, cutting report preparation from hours to minutes.</li>
         <li>Developed internal tools in PHP/MySQL — a warehouse document dispatch tracker with trip management and status reporting, a rice price list manager with role-based access and VAT handling, and a medical store POS with barcode scanning, supplier payments and customer credit ledgers.</li>
+        <li>Built a fleet management system for the company vehicles: vehicle and driver register, trip dispatch with route records, fuel and expense logging, and maintenance scheduling with document-expiry alerts.</li>
         <li>Built and maintain the company website and its full admin panel: products, categories, brands, banners, reviews, messages, users and admin/editor role separation.</li>
         <li>Produce bilingual Arabic/English business documentation — supply agreements, partnership terms and client proposals.</li>
       </ul>
@@ -205,7 +208,7 @@ h2{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.18em;
       </div>
       <span class="when">2019 — Present</span>
       <ul>
-        <li>Delivered 20+ production systems: classifieds marketplaces, job portals, POS and inventory systems, document toolkits, Chrome extensions, mobile apps and MetaTrader 5 trading robots.</li>
+        <li>Delivered 32 production systems: classifieds marketplaces, clinic and dispatch platforms, POS and inventory systems, document toolkits, Chrome extensions, mobile apps and MetaTrader 5 trading robots.</li>
         <li>Handle the full engagement — scoping, fixed-price quoting, milestone delivery, deployment to client hosting, and handover with source and documentation.</li>
       </ul>
     </div>
@@ -215,33 +218,53 @@ h2{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.18em;
     <h2>Selected projects</h2>
     <div class="two">
       <div class="pj">
+        <b>Fazco Documents Tracker</b>
+        <p class="stack">2026 · PHP 8.3 · MariaDB · PWA</p>
+        <p>Warehouse document dispatch and delivery tracking across five document types: bulk issue per driver trip, per-document status history, a live on-the-road board and a read-only reports role.</p>
+      </div>
+      <div class="pj">
+        <b>Aziz Dental Clinic System</b>
+        <p class="stack">2026 · PHP · MySQL · Multi-role</p>
+        <p>Clinic workflow from reception to billing — token queue, dental chart, prescriptions, X-ray and lab ordering with payment send-back, technician worklists and a patient self-service portal.</p>
+      </div>
+      <div class="pj">
+        <b>Fazco Price Desk</b>
+        <p class="stack">2026 · PHP 8 · MySQL · AR/EN</p>
+        <p>Price management and quotation system: 294 bilingual products, bulk price revision with audit history, and a quotation builder with discounts, 15% VAT and printable A4 bilingual quote sheets.</p>
+      </div>
+      <div class="pj">
+        <b>Fazco Fleet Manager</b>
+        <p class="stack">2026 · PHP · MySQL</p>
+        <p>Company vehicle fleet system: vehicle and driver register, trip dispatch with route records, fuel and running-expense logs, and maintenance scheduling with document-expiry alerts.</p>
+      </div>
+      <div class="pj">
+        <b>Mahveer POS &amp; Inventory</b>
+        <p class="stack">2026 · PHP · MySQL · Barcode</p>
+        <p>Retail point of sale with barcode scanning, pack/piece pricing, FIFO supplier settlement, customer credit ledgers, multi-warehouse transfers and thermal receipt printing.</p>
+      </div>
+      <div class="pj">
         <b>Expatriates KSA</b>
-        <p class="stack">PHP 8.3 · MariaDB · SEO</p>
-        <p>Classifieds marketplace with category and city search, ad posting, moderation queue, forum and a Search Console-ready SEO layer.</p>
+        <p class="stack">2026 · PHP 8.3 · MariaDB · SEO</p>
+        <p>Classifieds marketplace with category and city search, ad posting, moderation queue, forum and a Search Console-ready SEO layer. Live in production.</p>
       </div>
       <div class="pj">
         <b>XAUUSD Analysis Terminal</b>
-        <p class="stack">React · Claude API · Web search</p>
+        <p class="stack">2026 · React · Claude API</p>
         <p>Terminal that pulls live market context, runs it through an LLM with web search, and returns structured gold analysis with saved history.</p>
       </div>
       <div class="pj">
         <b>MT5 Expert Advisors</b>
-        <p class="stack">MQL5 · MetaTrader 5</p>
-        <p>Scalping and martingale robots with lot caps, drawdown limits, news-window pausing and auto-stop after a losing streak.</p>
+        <p class="stack">2026 · MQL5 · MetaTrader 5</p>
+        <p>Scalping and martingale trading robots with lot caps, drawdown limits, news-window pausing and auto-stop after a losing streak.</p>
       </div>
       <div class="pj">
         <b>Smart Bidding Assistant</b>
-        <p class="stack">Chrome MV3 · JavaScript · Claude API</p>
+        <p class="stack">2026 · Chrome MV3 · Claude API</p>
         <p>Browser extension that reads a job post, drafts a tailored proposal and tracks bids — delivered with a milestone client contract.</p>
       </div>
       <div class="pj">
-        <b>Medical Store POS</b>
-        <p class="stack">PHP · MySQL · Barcode</p>
-        <p>Retail point of sale with barcode scanning, pack/piece handling, supplier payments, customer credit ledgers and warehouse stock transfers.</p>
-      </div>
-      <div class="pj">
         <b>OneTapVPN</b>
-        <p class="stack">Flutter · WireGuard · VPS</p>
+        <p class="stack">2026 · Flutter · WireGuard · VPS</p>
         <p>Android VPN client with one-tap connect and server list, backed by a self-hosted WireGuard server, packaged for Play Store release.</p>
       </div>
     </div>

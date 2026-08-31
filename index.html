@@ -437,7 +437,7 @@ p{color:var(--ink-soft)}
         <a href="#work" class="act ghost">See the work</a>
       </div>
       <div class="ticker">
-        <div><b>23</b><span>Systems shipped</span></div>
+        <div><b>32</b><span>Systems shipped</span></div>
         <div><b>8</b><span>Languages</span></div>
         <div><b>5 yrs</b><span>Building software</span></div>
       </div>
@@ -512,7 +512,7 @@ p{color:var(--ink-soft)}
     <div class="spec-rail"><span class="idx">03</span><span class="ttl">Selected<br>work</span></div>
     <div>
       <div class="spec-head up">
-        <h2>23 systems, with the interface that shipped</h2>
+        <h2>32 systems, with the interface that shipped</h2>
         <p class="lead">Filter by the kind of build you need. Each preview is the real screen layout — dashboards, terminals, phone apps and documents.</p>
       </div>
       <div class="tabs up" id="tabs"></div>
@@ -790,6 +790,33 @@ document.getElementById('matrix').innerHTML = SKILLS.map(g=>`
 
 /* ═══ 2. PROJECTS ═══ */
 const PROJECTS = [
+  { t:'Fazco Fleet Manager', k:'Web platform', g:'web', y:'2026', ui:'fleet',
+    d:'Internal system for the company vehicle fleet: a vehicle and driver register, trip dispatch with route records, fuel and running-expense logs per vehicle, and a maintenance schedule that raises alerts before vehicle documents expire.',
+    x:['PHP','MySQL','Role access','Alerts'] },
+  { t:'Fazco Documents Tracker', k:'Web platform', g:'web', y:'2026', ui:'dash',
+    d:'Warehouse document dispatch and delivery tracking: five document types, bulk issue across one driver trip, per-document status history, a live "who is on the road" board, a read-only reports role, and PWA install for desktop.',
+    x:['PHP 8.3','MariaDB','PWA','Role access'] },
+  { t:'Fazco Price Desk', k:'Web platform', g:'web', y:'2026', ui:'quote',
+    d:'Price management and quotation system for a Saudi trading company: 294 bilingual Arabic/English products, inline price editing, bulk revision by category, full price-change audit history, and a quotation builder with line discounts, 15% VAT and printable A4 bilingual quote sheets.',
+    x:['PHP 8','MySQL','Arabic/English','VAT'] },
+  { t:'Aziz Dental Clinic System', k:'Web platform', g:'web', y:'2026', ui:'clinic',
+    d:'Full clinic workflow from reception to billing: token queue, FDI dental chart, diagnosis and prescriptions, X-ray and lab ordering with payment send-back, technician worklists, and a patient portal with MR number and PIN login.',
+    x:['PHP','MySQL','Multi-role','Patient portal'] },
+  { t:'Mahveer POS & Inventory', k:'E-commerce / POS', g:'web', y:'2026', ui:'pos',
+    d:'Retail point of sale with barcode scanning, pack and piece pricing, multi-warehouse stock transfers, supplier payments settled FIFO, customer credit ledgers, thermal receipt printing and a nine-chart sales dashboard.',
+    x:['PHP','MySQL','Barcode','Thermal print'] },
+  { t:'StockPortal', k:'Web platform', g:'web', y:'2026', ui:'list',
+    d:'Warehouse stock portal for an Amazon and Trendyol e-commerce operation: product cards, stock movement history, low-stock alerts and admin/manager role separation.',
+    x:['PHP','MySQL','Inventory'] },
+  { t:'Rice Price List Manager', k:'Web platform', g:'web', y:'2025', ui:'tools',
+    d:'Price list system for a trading company with role-based editing, VAT handling, PDF and Excel export, and offline PWA access for staff on the warehouse floor.',
+    x:['PHP','MySQL','PWA','Exports'] },
+  { t:'YT-Autopilot', k:'AI automation', g:'ai', y:'2026', ui:'pipe',
+    d:'A Python content pipeline for YouTube: scripted generation, voice and media assembly with FFmpeg, thumbnail production and scheduled uploads through the YouTube Data API.',
+    x:['Python','FFmpeg','YouTube API','Claude'] },
+  { t:'This Portfolio', k:'Web platform', g:'web', y:'2026', ui:'browser',
+    d:'The site you are reading: hand-written HTML, CSS and JavaScript with a Three.js layer diagram, a live dark theme, an interactive particle experience and a PHP-backed project brief form. No framework, no page builder.',
+    x:['Three.js','Vanilla JS','PHP','WebGL'] },
   { t:'Expatriates KSA', k:'Web platform', g:'web', y:'2026', ui:'browser', link:'https://expatriatesksa.com',
     d:'A full classifieds marketplace for expats in Saudi Arabia: category and city search, ad posting, moderation queue, forum, and an SEO layer built for Search Console.',
     x:['PHP 8.3','MariaDB','Vanilla JS','SEO'] },
@@ -959,6 +986,32 @@ const UI = {
     <span class="bx" style="background:linear-gradient(140deg,rgba(63,191,158,.3),rgba(63,191,158,.06))"></span>
     <span class="bx" style="background:linear-gradient(140deg,rgba(122,150,220,.28),rgba(122,150,220,.05))"></span>
     <span class="bx" style="background:linear-gradient(140deg,rgba(217,106,99,.26),rgba(217,164,65,.09))"></span></div></div></div>`,
+  quote:()=>`<div class="scr"><div class="scr-in" style="padding:9px 12px"><div class="pg">
+    <div style="display:flex;justify-content:space-between;gap:8px"><span class="ln s wm" style="width:34%"></span><span class="ln s" style="width:22%"></span></div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr .8fr;gap:3px;margin-top:2px">${'<span class="ln l"></span>'.repeat(9)}</div>
+    <div style="display:flex;justify-content:flex-end;gap:6px;margin-top:auto"><span class="ln s" style="width:26%"></span><span class="ln s wm" style="width:20%"></span></div>
+  </div></div><span class="stamp">VAT 15%</span></div>`,
+  fleet:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl">
+    <div class="gr" style="flex:none;height:24px"><span class="bx g"></span><span class="bx a"></span><span class="bx"></span></div>
+    ${[['g','l'],['a','m'],['','l'],['','m']].map(([c,w])=>`<div style="display:flex;gap:6px;align-items:center">
+      <span class="bx ${c}" style="width:17px;height:10px;flex:none"></span>
+      <span class="ln ${w}" style="flex:1"></span>
+      <span class="ln s" style="width:20px;flex:none"></span></div>`).join('')}
+    <span class="ln l wm" style="margin-top:auto"></span></div></div><span class="stamp">ON ROAD</span></div>`,
+  pos:()=>`<div class="scr"><div class="scr-bar"><i class="d g"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl" style="flex:1.5">
+    ${[0,1,2].map(i=>`<div style="display:flex;gap:5px;align-items:center"><span class="bx ${i===0?'g':''}" style="width:15px;height:11px;flex:none"></span><span class="ln ${i===1?'m':'l'}" style="flex:1"></span><span class="ln s" style="width:22px;flex:none"></span></div>`).join('')}
+    <span class="ln m"></span></div>
+    <div class="cl rail" style="width:36%;background:rgba(63,191,158,.08);border:1px solid rgba(63,191,158,.24);border-radius:6px;padding:6px">
+    <span class="ln s"></span><span class="ln l"></span><span class="ln m"></span>
+    <span class="ln tall hi" style="margin-top:auto"></span></div></div><span class="stamp">TOTAL</span></div>`,
+  clinic:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail"><span class="ln l wm"></span><span class="ln m"></span><span class="ln l"></span><span class="ln s"></span></div>
+    <div class="cl"><div class="gr" style="flex:none;height:26px"><span class="bx a"></span><span class="bx g"></span><span class="bx"></span></div>
+    <div class="gr" style="grid-template-columns:repeat(8,1fr);gap:3px;flex:none;height:15px">${'<span class="bx"></span>'.repeat(8)}</div>
+    <div class="gr" style="grid-template-columns:repeat(8,1fr);gap:3px;flex:none;height:15px"><span class="bx g"></span>${'<span class="bx"></span>'.repeat(6)}<span class="bx a"></span></div>
+    <span class="ln m"></span><span class="ln l"></span></div></div><span class="stamp">MR-1042</span></div>`,
   report:()=>`<div class="scr"><div class="scr-in" style="padding:10px 14px"><div class="pg">
     <span class="ln s wm"></span><div class="chart" style="flex:1">${bar([40,62,48,80,55,92])}</div>
     <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3px">${'<span class="ln l"></span>'.repeat(6)}</div></div></div></div>`,
@@ -1009,8 +1062,8 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 
 /* ═══ 4. PROJECT BRIEF FORM ═══ */
 const CONTACT = {
-  email:'yoshaqasmi@gmail.com',     // ← apna email
-  whatsapp:'966539429053',     // ← country code, bina +
+  email:'you@example.com',     // ← apna email
+  whatsapp:'966500000000',     // ← country code, bina +
   endpoint:'contact.php'       // ← PHP handler (same folder)
 };
 document.getElementById('mailLink').href = 'mailto:'+CONTACT.email;
