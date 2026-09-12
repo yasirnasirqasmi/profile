@@ -10,10 +10,11 @@ declare(strict_types=1);
 
 $CONFIG = [
     // Where briefs are delivered.
-    'to'        => 'you@example.com',
+    'to'        => 'yoshaqasmi@gmail.com',
 
-    // Must be an address on YOUR domain, or the mail will be rejected as spoofed.
-    // Create it in cPanel → Email Accounts, e.g. noreply@yourdomain.com
+    // MUST be an address on YOUR OWN domain — Gmail/Hotmail addresses here get
+    // rejected as spoofed and the mail silently disappears.
+    // Create it first: cPanel/hPanel → Email Accounts → e.g. noreply@yourdomain.com
     'from'      => 'noreply@yourdomain.com',
 
     // Set to false to stop writing briefs to briefs.log (email only).

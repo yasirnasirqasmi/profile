@@ -222,7 +222,9 @@ p{color:var(--ink-soft)}
 .fact{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:.92rem}
 .fact:last-child{border:0}
 .fact dt{font-family:var(--code);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);flex:none;padding-top:2px}
-.fact dd{text-align:right}
+.fact dd{text-align:right;word-break:break-word}
+.fact dd a{color:var(--pine);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.fact dd a:hover{text-decoration-thickness:2px}
 .creds{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
 .creds span{font-family:var(--code);font-size:.66rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--paper-raise)}
 
@@ -266,7 +268,14 @@ p{color:var(--ink-soft)}
   border:1px solid var(--line);border-radius:7px;padding:10px 14px;transition:.2s}
 .direct a:hover{border-color:var(--pine);color:var(--pine)}
 
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:80;width:50px;height:50px;border-radius:50%;
+  display:grid;place-items:center;background:#128A70;color:#fff;
+  box-shadow:0 10px 26px -10px rgba(18,138,112,.75);transition:transform .22s,box-shadow .22s}
+.wa-float:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 30px -10px rgba(18,138,112,.85)}
+@media print{.wa-float{display:none}}
 .foot{padding:26px 0 40px;border-top:1px solid var(--line)}
+.foot-contact a{color:var(--ink-soft)}
+.foot-contact a:hover{color:var(--pine)}
 .foot-in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;
   font-family:var(--code);font-size:.68rem;letter-spacing:.05em;color:var(--ink-faint)}
 
@@ -320,6 +329,14 @@ p{color:var(--ink-soft)}
 }
 @media print{.topbar,.stack-wrap,.brief,.foot{display:none}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Yasir Nasir Qasmi",
+"jobTitle":"Software Engineer",
+"email":"mailto:yoshaqasmi@gmail.com","telephone":"+966539429053",
+"address":{"@type":"PostalAddress","addressLocality":"Jeddah","addressCountry":"SA"},
+"sameAs":["https://www.linkedin.com/in/yasirnasirqasmi/","https://expatriatesksa.com"],
+"knowsLanguage":["English","Urdu","Hindi","Arabic"]}
+</script>
 </head>
 <body>
 
@@ -351,7 +368,7 @@ p{color:var(--ink-soft)}
       <div class="hero-acts">
         <a href="#brief" class="act fill">Start a project</a>
         <a href="resume.html" class="act" target="_blank" rel="noopener">Download resume</a>
-        <a href="#work" class="act ghost">See the work</a>
+        <a href="https://wa.me/966539429053" class="act ghost" target="_blank" rel="noopener">WhatsApp me</a>
       </div>
       <div class="ticker">
         <div><b>32</b><span>Systems shipped</span></div>
@@ -549,6 +566,9 @@ p{color:var(--ink-soft)}
             <div class="fact"><dt>Education</dt><dd>B.S. Software Engineering<br>Virtual University of Pakistan</dd></div>
             <div class="fact"><dt>Languages</dt><dd>English, Urdu, Hindi<br>Arabic (basic)</dd></div>
             <div class="fact"><dt>Open to</dt><dd>Freelance projects<br>Full-time roles in KSA</dd></div>
+            <div class="fact"><dt>Email</dt><dd><a href="mailto:yoshaqasmi@gmail.com">yoshaqasmi@gmail.com</a></dd></div>
+            <div class="fact"><dt>Phone</dt><dd><a href="tel:+966539429053">+966 53 942 9053</a></dd></div>
+            <div class="fact"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/yasirnasirqasmi/" target="_blank" rel="noopener">/yasirnasirqasmi</a></dd></div>
           </dl>
         </div>
         </div>
@@ -668,9 +688,9 @@ p{color:var(--ink-soft)}
       </form>
 
       <div class="direct up">
-        <a href="mailto:you@example.com" id="mailLink">Email directly</a>
-        <a href="https://wa.me/966500000000" id="waLink" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:yoshaqasmi@gmail.com" id="mailLink">Email directly</a>
+        <a href="https://wa.me/966539429053" id="waLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/yasirnasirqasmi/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="resume.html" target="_blank" rel="noopener">Resume</a>
       </div>
     </div>
@@ -679,10 +699,16 @@ p{color:var(--ink-soft)}
 
 </main>
 
+<a class="wa-float" href="https://wa.me/966539429053" target="_blank" rel="noopener" aria-label="Message me on WhatsApp">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.46 1.34 4.97L2 22l5.27-1.38a9.9 9.9 0 0 0 4.77 1.22h.01c5.46 0 9.9-4.44 9.9-9.9A9.9 9.9 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.05-.2-.31a8.22 8.22 0 1 1 6.98 3.87Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35 1 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/>
+  </svg>
+</a>
+
 <footer class="foot">
   <div class="shell foot-in">
     <span>© <span id="year">2026</span> Yasir Nasir Qasmi — Jeddah, Saudi Arabia</span>
-    <span>Hand-built · no page builder</span>
+    <span class="foot-contact"><a href="mailto:yoshaqasmi@gmail.com">yoshaqasmi@gmail.com</a> · <a href="tel:+966539429053">+966 53 942 9053</a> · <a href="https://www.linkedin.com/in/yasirnasirqasmi/" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
 
@@ -979,9 +1005,23 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 
 /* ═══ 4. PROJECT BRIEF FORM ═══ */
 const CONTACT = {
-  email:'you@example.com',     // ← apna email
-  whatsapp:'966500000000',     // ← country code, bina +
-  endpoint:'contact.php'       // ← PHP handler (same folder)
+  email:'yoshaqasmi@gmail.com',
+  whatsapp:'966539429053',
+
+  /* ── HOW THE FORM DELIVERS ──────────────────────────────────────────
+     Option A — static hosting (GitHub Pages, Netlify, any host without PHP):
+       1. Go to https://web3forms.com  →  enter yoshaqasmi@gmail.com
+       2. They email you an access key. Paste it below.
+       3. Briefs land straight in your Gmail. No backend needed.
+
+     Option B — PHP hosting (Hostinger, cPanel):
+       Leave web3formsKey empty and upload contact.php next to this file.
+
+     If neither is set up, the form still works — it opens the visitor's
+     email app with the whole brief pre-filled, addressed to you.
+  ─────────────────────────────────────────────────────────────────── */
+  web3formsKey:'8a9ef680-d543-496a-94cd-ba44a021ad56',
+  endpoint:'contact.php'
 };
 document.getElementById('mailLink').href = 'mailto:'+CONTACT.email;
 document.getElementById('waLink').href = 'https://wa.me/'+CONTACT.whatsapp;
@@ -1043,10 +1083,42 @@ form.addEventListener('submit',async e=>{
   btn.disabled = true; btn.textContent = 'Sending…';
 
   try{
-    const res = await fetch(CONTACT.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-    if(!res.ok) throw new Error('status '+res.status);
-    const out = await res.json().catch(()=>({ok:true}));
-    if(out.ok === false) throw new Error(out.error||'rejected');
+    let res, out;
+
+    if(CONTACT.web3formsKey){
+      // straight to Gmail, no server needed
+      res = await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify({
+          access_key: CONTACT.web3formsKey,
+          subject: 'Project brief — ' + (data.project_type||'new enquiry') + ' — ' + data.name,
+          from_name: 'Portfolio · Project Brief',
+          replyto: data.email,
+          botcheck: '',
+          'Name': data.name,
+          'Email': data.email,
+          'Phone / WhatsApp': data.phone || '—',
+          'Company': data.company || '—',
+          'Needs built': data.project_type,
+          'Budget': data.budget || 'Not stated',
+          'Timeline': data.timeline || 'Flexible',
+          'Found via': data.source || '—',
+          'Project description': data.message,
+          'Sent from': data.page
+        })
+      });
+      out = await res.json().catch(()=>({success:false}));
+      if(!res.ok || out.success === false){
+        console.error('Web3Forms:', out && out.message);
+        throw new Error((out && out.message) || 'rejected');
+      }
+    }else{
+      res = await fetch(CONTACT.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!res.ok) throw new Error('status '+res.status);
+      out = await res.json().catch(()=>({ok:true}));
+      if(out.ok === false) throw new Error(out.error||'rejected');
+    }
     form.reset(); cnt.textContent = '0';
     showNote('Brief received. You\'ll get a scope, timeline and price back within one working day.');
   }catch(err){
