@@ -351,7 +351,7 @@ p{color:var(--ink-soft)}
   <div class="shell topbar-in">
     <a class="sig" href="#top"><i></i>Yasir Nasir Qasmi</a>
     <nav class="menu" id="menu">
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
       <a href="#skills">Skills</a>
       <a href="#work">Work</a>
       <a href="#process">Process</a>
@@ -378,7 +378,7 @@ p{color:var(--ink-soft)}
         <a href="https://wa.me/966539429053" class="act ghost" target="_blank" rel="noopener">WhatsApp me</a>
       </div>
       <div class="ticker">
-        <div><b>32</b><span>Systems shipped</span></div>
+        <div><b>38</b><span>Systems shipped</span></div>
         <div><b>8</b><span>Languages</span></div>
         <div><b>5 yrs</b><span>Building software</span></div>
       </div>
@@ -397,8 +397,8 @@ p{color:var(--ink-soft)}
     <div class="spec-rail"><span class="idx">01</span><span class="ttl">What I<br>build</span></div>
     <div>
       <div class="spec-head up">
-        <h2>Four kinds of build, one way of working</h2>
-        <p class="lead">Most people arrive with half a system in their head. My job is to turn that into a schema, an interface their team can actually use, and scripts that remove the manual part.</p>
+        <h2>Six service lines, one way of working</h2>
+        <p class="lead">Most people arrive with half a system in their head. My job is to turn that into a schema, an interface their team can actually use, and scripts that remove the manual part. <a href="services.html" style="color:var(--pine);text-decoration:underline;text-underline-offset:3px">Full service breakdown →</a></p>
       </div>
       <div class="svc up">
         <article>
@@ -421,6 +421,18 @@ p{color:var(--ink-soft)}
         </article>
         <article>
           <span class="no">S—04</span>
+          <h3>E-commerce management</h3>
+          <p>Marketplace operations for Amazon, Noon and Trendyol — account setup, bilingual listings, catalogue and stock work, and per-SKU profitability after fees.</p>
+          <ul><li>Amazon.sa</li><li>Noon</li><li>Trendyol</li><li>Bulk upload</li></ul>
+        </article>
+        <article>
+          <span class="no">S—05</span>
+          <h3>Technical SEO</h3>
+          <p>Audits where the fixes actually get implemented — crawl and index issues, schema, Core Web Vitals, and separate Arabic and English keyword sets for the Saudi market.</p>
+          <ul><li>Search Console</li><li>Schema</li><li>Core Web Vitals</li><li>Arabic SEO</li></ul>
+        </article>
+        <article>
+          <span class="no">S—06</span>
           <h3>Data &amp; reporting</h3>
           <p>Dashboards, scrapers and generated documents — Power BI models, cleaned pipelines, and bilingual contracts or decks produced straight from your data.</p>
           <ul><li>Power BI</li><li>SQL</li><li>Scrapers</li><li>Doc automation</li></ul>
@@ -453,7 +465,7 @@ p{color:var(--ink-soft)}
     <div class="spec-rail"><span class="idx">03</span><span class="ttl">Selected<br>work</span></div>
     <div>
       <div class="spec-head up">
-        <h2>32 systems, with the interface that shipped</h2>
+        <h2>38 systems, with the interface that shipped</h2>
         <p class="lead">Filter by the kind of build you need. Each preview is the real screen layout — dashboards, terminals, phone apps and documents.</p>
       </div>
       <div class="tabs up" id="tabs"></div>
@@ -756,6 +768,24 @@ document.getElementById('matrix').innerHTML = SKILLS.map(g=>`
 
 /* ═══ 2. PROJECTS ═══ */
 const PROJECTS = [
+  { t:'Broken Link Checker Pro', k:'WordPress plugin', g:'web', y:'2026', ui:'wp',
+    d:'A WordPress plugin that crawls every post, page and custom field for dead links, queues checks in the background, and reports them in a sortable admin table with bulk edit and re-check actions.',
+    x:['PHP OOP','WP_List_Table','DOMDocument','AJAX'] },
+  { t:'Mohammed Hafeez Food Factory', k:'Client website', g:'web', y:'2026', ui:'browser',
+    d:'Corporate website for a food manufacturer: product catalogue by category, company profile, certifications and enquiry handling, built to load fast on mobile connections.',
+    x:['PHP','MySQL','Responsive','SEO'] },
+  { t:'Hashim School of IT', k:'Client website', g:'web', y:'2026', ui:'list',
+    d:'Website for an IT training institute — course listings with fees and duration, admission enquiry forms, instructor profiles and an admin panel the staff manage themselves.',
+    x:['PHP','MySQL','Admin panel'] },
+  { t:'SAT Trading — Redesign Concept', k:'Client website', g:'web', y:'2026', ui:'art',
+    d:'A pitch-stage redesign concept for a Dubai hair extensions supplier: premium product presentation, 3D visual treatment and a conversion-focused layout built to win the rebuild.',
+    x:['HTML/CSS','Three.js','Concept design'] },
+  { t:'Gold Trading Portal', k:'Trading system', g:'trading', y:'2026', ui:'chart',
+    d:'A deployed PHP/MySQL portal that tracks live XAUUSD signals, records their outcomes, and runs an LLM-backed bias analysis alongside the MQL5 Expert Advisor that generates the entries.',
+    x:['PHP','MySQL','MQL5','Claude API'] },
+  { t:'Job Application Toolkit', k:'AI automation', g:'ai', y:'2026', ui:'app',
+    d:'A React tool for the Saudi job market: builds filtered search URLs across job boards, extracts requirements from live listings, then generates an ATS-matched resume and bilingual outreach message per role.',
+    x:['React','Claude API','ATS output'] },
   { t:'Fazco Fleet Manager', k:'Web platform', g:'web', y:'2026', ui:'fleet',
     d:'Internal system for the company vehicle fleet: a vehicle and driver register, trip dispatch with route records, fuel and running-expense logs per vehicle, and a maintenance schedule that raises alerts before vehicle documents expire.',
     x:['PHP','MySQL','Role access','Alerts'] },
@@ -768,10 +798,10 @@ const PROJECTS = [
   { t:'Aziz Dental Clinic System', k:'Web platform', g:'web', y:'2026', ui:'clinic',
     d:'Full clinic workflow from reception to billing: token queue, FDI dental chart, diagnosis and prescriptions, X-ray and lab ordering with payment send-back, technician worklists, and a patient portal with MR number and PIN login.',
     x:['PHP','MySQL','Multi-role','Patient portal'] },
-  { t:'Mahveer POS & Inventory', k:'E-commerce / POS', g:'web', y:'2026', ui:'pos',
+  { t:'Mahveer POS & Inventory', k:'Retail / POS', g:'ecom', y:'2026', ui:'pos',
     d:'Retail point of sale with barcode scanning, pack and piece pricing, multi-warehouse stock transfers, supplier payments settled FIFO, customer credit ledgers, thermal receipt printing and a nine-chart sales dashboard.',
     x:['PHP','MySQL','Barcode','Thermal print'] },
-  { t:'StockPortal', k:'Web platform', g:'web', y:'2026', ui:'list',
+  { t:'StockPortal', k:'E-commerce ops', g:'ecom', y:'2026', ui:'list',
     d:'Warehouse stock portal for an Amazon and Trendyol e-commerce operation: product cards, stock movement history, low-stock alerts and admin/manager role separation.',
     x:['PHP','MySQL','Inventory'] },
   { t:'Rice Price List Manager', k:'Web platform', g:'web', y:'2025', ui:'tools',
@@ -849,11 +879,11 @@ const PROJECTS = [
   { t:'AI Ad Creative Studio', k:'AI automation', g:'ai', y:'2025', ui:'art',
     d:'Product ad visuals for social campaigns generated with AI image tools, then set into a repeatable brand layout — same product, many sizes and placements.',
     x:['AI image gen','Brand layouts'] },
-  { t:'E-Commerce Market Research', k:'Data & BI', g:'data', y:'2025', ui:'report',
+  { t:'E-Commerce Market Research', k:'E-commerce ops', g:'ecom', y:'2025', ui:'report',
     d:'Category research across Saudi marketplaces for a retail venture — pricing bands, competitor listings and demand signals turned into a partnership proposal.',
     x:['Research','Excel','Reporting'] },
 ];
-const TABS = [['all','All work'],['web','Web platforms'],['ai','AI & automation'],['trading','Trading systems'],['mobile','Mobile apps'],['data','Data & docs']];
+const TABS = [['all','All work'],['web','Web platforms'],['ecom','E-commerce'],['ai','AI & automation'],['trading','Trading systems'],['mobile','Mobile apps'],['data','Data & docs']];
 
 const bar = a => a.map(h=>`<i style="height:${h}%"></i>`).join('');
 const tk  = a => a.map(c=>`<i class="${c[1]}" style="height:${c[0]}%;margin-top:${c[2]}%"></i>`).join('');
@@ -952,6 +982,13 @@ const UI = {
     <span class="bx" style="background:linear-gradient(140deg,rgba(18,138,112,.26),rgba(18,138,112,.05))"></span>
     <span class="bx" style="background:linear-gradient(140deg,rgba(96,124,186,.24),rgba(96,124,186,.05))"></span>
     <span class="bx" style="background:linear-gradient(140deg,rgba(196,103,95,.22),rgba(201,138,46,.08))"></span></div></div></div>`,
+  wp:()=>`<div class="scr"><div class="scr-bar"><i class="d a"></i><span class="addr"></span></div>
+    <div class="scr-in"><div class="cl rail" style="width:20%"><span class="ln l"></span><span class="ln m"></span><span class="ln l wm"></span><span class="ln s"></span></div>
+    <div class="cl"><div style="display:flex;gap:5px;align-items:center"><span class="ln s wm" style="width:30%"></span><span class="ln s" style="width:18%;margin-left:auto"></span></div>
+    ${[['r','l'],['','m'],['r','l'],['','m'],['g','l']].map(([c,w])=>`<div style="display:flex;gap:6px;align-items:center">
+      <span class="bx ${c==='r'?'a':(c==='g'?'g':'')}" style="width:11px;height:8px;flex:none"></span>
+      <span class="ln ${w}" style="flex:1"></span></div>`).join('')}
+    </div></div><span class="stamp">42 BROKEN</span></div>`,
   quote:()=>`<div class="scr"><div class="scr-in" style="padding:9px 12px"><div class="pg">
     <div style="display:flex;justify-content:space-between;gap:8px"><span class="ln s wm" style="width:34%"></span><span class="ln s" style="width:22%"></span></div>
     <div style="display:grid;grid-template-columns:1.6fr 1fr .8fr;gap:3px;margin-top:2px">${'<span class="ln l"></span>'.repeat(9)}</div>

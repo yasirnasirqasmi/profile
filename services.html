@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Services — Yasir Nasir Qasmi | Web Development, E-Commerce &amp; SEO, Jeddah</title>
+<meta name="description" content="Software development, e-commerce management for Amazon, Noon and Trendyol, technical SEO, AI automation and reporting — delivered end to end from Jeddah, Saudi Arabia.">
+<meta name="theme-color" content="#F7F8FA">
+<meta property="og:title" content="Services — Yasir Nasir Qasmi">
+<meta property="og:description" content="Web platforms, marketplace management for Amazon/Noon/Trendyol, technical SEO, AI automation and reporting.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8FA; --paper-raise:#FFFFFF; --paper-sunk:#F0F2F5;
+  --ink:#16202E; --ink-soft:#4C5768; --ink-faint:#8592A3;
+  --line:rgba(22,32,46,.11); --line-soft:rgba(22,32,46,.06);
+  --pine:#0F6152; --pine-tint:rgba(15,97,82,.07); --band:#F0F4F3;
+  --display:'Plus Jakarta Sans',system-ui,sans-serif;
+  --text:'Inter',system-ui,sans-serif;
+  --code:'IBM Plex Mono',ui-monospace,monospace;
+  --max:1160px; --gut:clamp(20px,4vw,48px); --rail:132px;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper);-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--pine);color:#fff}
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px;border-radius:4px}
+.shell{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.028em}
+h1{font-size:clamp(2.3rem,5.4vw,3.9rem);font-weight:700}
+h2{font-size:clamp(1.7rem,3.2vw,2.45rem)}
+h3{font-size:1.1rem;letter-spacing:-.012em}
+h4{font-size:.95rem}
+p{color:var(--ink-soft)}
+.lead{font-size:clamp(1rem,1.5vw,1.14rem);max-width:58ch;color:var(--ink-soft)}
+.tag{font-family:var(--code);font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint)}
+
+.topbar{position:sticky;top:0;z-index:70;background:rgba(247,248,250,.84);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+.topbar.pinned{border-bottom-color:var(--line);background:rgba(247,248,250,.96)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.sig{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.02rem}
+.sig i{width:9px;height:9px;background:var(--pine);border-radius:2px;flex:none;transform:rotate(45deg)}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-family:var(--code);font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s}
+.menu a:hover,.menu a[aria-current]{color:var(--pine)}
+.hamburger{display:none;background:none;border:1px solid var(--line);border-radius:7px;padding:9px 10px;cursor:pointer}
+.hamburger i{display:block;width:17px;height:1.5px;background:var(--ink);margin:3.5px 0}
+
+.act{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 21px;border-radius:8px;cursor:pointer;
+  font-family:var(--code);font-size:.75rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);transition:.22s}
+.act:hover{transform:translateY(-2px);background:var(--ink);color:var(--paper)}
+.act.fill{background:var(--pine);border-color:var(--pine);color:#fff}
+.act.fill:hover{background:#0A4C40;border-color:#0A4C40;color:#fff}
+.act.ghost{border-color:var(--line);color:var(--ink-soft)}
+.act.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.act.sm{padding:10px 15px;font-size:.7rem}
+
+.block{padding:clamp(58px,7vw,92px) 0;border-top:1px solid var(--line)}
+.spec{display:grid;grid-template-columns:var(--rail) 1fr;gap:clamp(20px,4vw,52px);align-items:start}
+.spec-rail{position:sticky;top:88px}
+.spec-rail .idx{display:block;font-family:var(--code);font-size:.7rem;letter-spacing:.15em;color:var(--pine);margin-bottom:6px}
+.spec-rail .ttl{font-family:var(--code);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);line-height:1.5}
+.spec-head{max-width:62ch;margin-bottom:clamp(26px,3.5vw,40px)}
+.spec-head h2{margin-bottom:13px}
+
+.hero{padding:clamp(44px,6vw,74px) 0 clamp(36px,5vw,56px)}
+.hero h1{margin:16px 0 20px;max-width:17ch}
+.hero h1 em{font-style:normal;color:var(--pine)}
+.hero-acts{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+
+/* service blocks */
+.offer{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.offer .cell{background:var(--paper-raise);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,2.4vw,24px)}
+.offer .cell h4{margin-bottom:7px}
+.offer .cell p{font-size:.9rem}
+.deliver{list-style:none;margin-top:14px;display:grid;gap:7px}
+.deliver li{position:relative;padding-left:19px;font-size:.91rem;color:var(--ink-soft)}
+.deliver li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;
+  background:var(--pine-tint);border:1px solid var(--pine);transform:rotate(45deg)}
+.stackline{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.stackline span{font-family:var(--code);font-size:.65rem;color:var(--ink-soft);background:var(--paper-sunk);border-radius:5px;padding:4px 9px}
+
+/* marketplace strip */
+.markets{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.markets div{background:var(--paper-raise);padding:18px 20px}
+.markets b{font-family:var(--display);font-weight:600;font-size:1.05rem;display:block;margin-bottom:3px}
+.markets span{font-family:var(--code);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* comparison / pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{background:var(--paper-raise);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,2.4vw,24px);display:flex;flex-direction:column}
+.plan.feature{border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint)}
+.plan .kind{font-family:var(--code);font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:var(--pine);margin-bottom:9px;display:block}
+.plan h3{margin-bottom:8px}
+.plan p{font-size:.9rem}
+.plan ul{list-style:none;margin:14px 0 18px;display:grid;gap:7px}
+.plan li{position:relative;padding-left:18px;font-size:.88rem;color:var(--ink-soft)}
+.plan li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--pine)}
+.plan .act{margin-top:auto}
+
+.faq{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper-raise)}
+.faq details{border-top:1px solid var(--line-soft)}
+.faq details:first-child{border-top:0}
+.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-family:var(--display);font-weight:600;
+  font-size:.98rem;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--code);color:var(--pine);font-size:1.1rem;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 18px 17px;font-size:.92rem;max-width:70ch}
+
+.cta{border:1px solid var(--line);border-radius:14px;background:var(--band);padding:clamp(24px,4vw,44px);text-align:center}
+.cta h2{margin-bottom:12px}
+.cta p{margin:0 auto;max-width:52ch}
+.cta-acts{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;margin-top:24px}
+
+.foot{padding:26px 0 40px;border-top:1px solid var(--line)}
+.foot-in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;
+  font-family:var(--code);font-size:.68rem;letter-spacing:.05em;color:var(--ink-faint)}
+.foot-in a{color:var(--ink-soft)}
+.foot-in a:hover{color:var(--pine)}
+
+.up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.up.seen{opacity:1;transform:none}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:80;width:50px;height:50px;border-radius:50%;
+  display:grid;place-items:center;background:#128A70;color:#fff;
+  box-shadow:0 10px 26px -10px rgba(18,138,112,.75);transition:.22s}
+.wa-float:hover{transform:translateY(-3px) scale(1.04)}
+.wa-float svg{fill:currentColor}
+
+@media(max-width:1000px){.offer,.plans{grid-template-columns:1fr 1fr}.markets{grid-template-columns:1fr}}
+@media(max-width:860px){
+  .spec{grid-template-columns:1fr;gap:16px}
+  .spec-rail{position:static;display:flex;align-items:baseline;gap:10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+  .spec-rail .idx{margin-bottom:0}
+  .menu{position:fixed;left:0;right:0;top:62px;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:4px var(--gut) 18px;display:none}
+  .menu.open{display:flex}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:.8rem}
+  .hamburger{display:block}
+  .topbar .act{display:none}
+}
+@media(max-width:700px){.offer,.plans{grid-template-columns:1fr}.hero-acts{display:grid;grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.up{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="shell topbar-in">
+    <a class="sig" href="index.html"><i></i>Yasir Nasir Qasmi</a>
+    <nav class="menu" id="menu">
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#brief">Hire me</a>
+    </nav>
+    <a href="index.html#brief" class="act fill sm">Start a project</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="shell">
+    <span class="tag">Services · Jeddah, Saudi Arabia</span>
+    <h1>Build it, launch it, <em>and keep it running.</em></h1>
+    <p class="lead">Six service lines, all delivered by the same person who writes the code. Whether you need a system built from nothing, a marketplace account that actually converts, or search traffic that compounds — the work is scoped in writing, priced fixed, and handed over with the source.</p>
+    <div class="hero-acts">
+      <a href="index.html#brief" class="act fill">Request a quote</a>
+      <a href="https://wa.me/966539429053" class="act" target="_blank" rel="noopener">WhatsApp me</a>
+      <a href="index.html#work" class="act ghost">See past work</a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 DEVELOPMENT -->
+<section class="block" id="development">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">01</span><span class="ttl">Software<br>development</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Web platforms and business systems</h2>
+        <p class="lead">Custom systems for companies that have outgrown spreadsheets — built on PHP and MySQL, deployed to your hosting, documented so your team can run them.</p>
+      </div>
+      <div class="offer up">
+        <div class="cell">
+          <h4>Business systems</h4>
+          <p>Internal tools that replace manual tracking: inventory, dispatch, quotations, clinic and patient workflows, HR records.</p>
+          <ul class="deliver">
+            <li>Role-based access for every user type</li>
+            <li>Reporting and exports built in from day one</li>
+            <li>Audit history on anything that changes</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Websites and portals</h4>
+          <p>Company sites, catalogues, job boards and classifieds with an admin panel your staff actually operate themselves.</p>
+          <ul class="deliver">
+            <li>Mobile-first, fast on weak connections</li>
+            <li>Bilingual Arabic and English where needed</li>
+            <li>Self-managed content, no developer required</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Point of sale &amp; inventory</h4>
+          <p>Retail and wholesale systems with barcode scanning, multi-location stock, supplier settlement and credit ledgers.</p>
+          <ul class="deliver">
+            <li>Thermal receipt and A4 invoice printing</li>
+            <li>Stock transfers between branches or warehouses</li>
+            <li>Daily, monthly and per-product sales analysis</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Fixes and takeovers</h4>
+          <p>Inheriting a half-finished system from another developer, or a live site that keeps breaking. I audit first, then quote.</p>
+          <ul class="deliver">
+            <li>Written audit of what is wrong before any work</li>
+            <li>Security hardening: injection, auth, uploads</li>
+            <li>Performance and database cleanup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stackline up">
+        <span>PHP 8.3</span><span>MySQL / MariaDB</span><span>React</span><span>Vanilla JS</span>
+        <span>WordPress</span><span>PWA</span><span>REST APIs</span><span>Hostinger / VPS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 E-COMMERCE -->
+<section class="block" id="ecommerce">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">02</span><span class="ttl">E-commerce<br>management</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Marketplace operations for Amazon, Noon and Trendyol</h2>
+        <p class="lead">Selling on a marketplace is an operations problem before it is a marketing one. I handle the catalogue, the stock, the listings and the numbers — so the account stops leaking margin and starts ranking.</p>
+      </div>
+
+      <div class="markets up">
+        <div><b>Amazon.sa</b><span>Seller Central · FBA &amp; FBM</span></div>
+        <div><b>Noon</b><span>Noon Seller Lab · KSA &amp; UAE</span></div>
+        <div><b>Trendyol</b><span>Seller Panel · cross-border</span></div>
+      </div>
+
+      <div class="offer up">
+        <div class="cell">
+          <h4>Account setup and onboarding</h4>
+          <p>Getting a new seller live properly the first time, so you are not fixing category and tax problems six months later.</p>
+          <ul class="deliver">
+            <li>Seller registration and document verification</li>
+            <li>Category approvals and brand registry</li>
+            <li>VAT, shipping and returns configuration</li>
+            <li>Fulfilment choice: FBA, FBM or hybrid, with the cost maths</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Listing creation and optimisation</h4>
+          <p>Listings written to rank and convert, in both Arabic and English, with the attributes each marketplace actually indexes.</p>
+          <ul class="deliver">
+            <li>Keyword research per marketplace, not copied from Google</li>
+            <li>Titles, bullets and descriptions in AR and EN</li>
+            <li>Complete attribute and variation data</li>
+            <li>Image and A+ content briefs</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Catalogue and inventory operations</h4>
+          <p>Bulk work that would take your team weeks, handled with scripts and templates instead of manual entry.</p>
+          <ul class="deliver">
+            <li>Bulk upload and mass revision by flat file</li>
+            <li>Stock sync between warehouse and marketplaces</li>
+            <li>Low-stock and out-of-stock alerting</li>
+            <li>Suppressed and inactive listing recovery</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Pricing, orders and reporting</h4>
+          <p>The part most sellers skip: knowing which SKUs actually make money after fees, returns and shipping.</p>
+          <ul class="deliver">
+            <li>Competitor and buy-box price monitoring</li>
+            <li>Order, cancellation and return handling</li>
+            <li>Per-SKU profitability after marketplace fees</li>
+            <li>Power BI dashboard across all channels</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="offer up" style="margin-top:16px">
+        <div class="cell" style="grid-column:1/-1">
+          <h4>Where the development side helps</h4>
+          <p>Because I build the software as well, marketplace work does not stop at the seller panel. I have built a warehouse stock portal for an Amazon and Trendyol operation, and run category research across Saudi marketplaces to size a retail venture. If your bottleneck is a missing tool — stock sync, a pricing sheet, an order importer — it gets built rather than worked around.</p>
+          <div class="stackline">
+            <span>Flat file / bulk upload</span><span>Stock sync tools</span><span>Scraping &amp; price monitoring</span>
+            <span>Power BI reporting</span><span>Arabic / English content</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SEO -->
+<section class="block" id="seo">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">03</span><span class="ttl">Search<br>engine work</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Technical SEO that a developer can actually implement</h2>
+        <p class="lead">Most SEO reports end with a list of problems somebody else has to fix. I find them and fix them in the same engagement, because I have access to the code.</p>
+      </div>
+      <div class="offer up">
+        <div class="cell">
+          <h4>Technical audit and fixes</h4>
+          <p>A full crawl of the site, then the actual repairs — not a PDF of recommendations.</p>
+          <ul class="deliver">
+            <li>Crawlability, indexation and robots issues</li>
+            <li>Canonicals, redirects and duplicate content</li>
+            <li>Core Web Vitals and page speed work</li>
+            <li>Broken links and orphan pages</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>On-page and structure</h4>
+          <p>Getting the site architecture and each page's signals right so search engines understand what you sell.</p>
+          <ul class="deliver">
+            <li>Keyword research and page mapping</li>
+            <li>Titles, meta and heading structure</li>
+            <li>Schema markup: Organization, Product, FAQ, LocalBusiness</li>
+            <li>Internal linking that spreads authority</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Local and bilingual SEO</h4>
+          <p>Ranking in Saudi Arabia means handling Arabic properly — not running English pages through a translator.</p>
+          <ul class="deliver">
+            <li>Arabic and English keyword sets, researched separately</li>
+            <li>hreflang and language routing</li>
+            <li>Google Business Profile and local citations</li>
+            <li>City and region landing pages</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Measurement</h4>
+          <p>Reporting that shows movement on the queries that produce enquiries, not vanity impressions.</p>
+          <ul class="deliver">
+            <li>Search Console and Analytics set up correctly</li>
+            <li>Rank tracking on commercial keywords</li>
+            <li>Monthly report with what changed and why</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stackline up">
+        <span>Search Console</span><span>GA4</span><span>Schema / JSON-LD</span><span>Core Web Vitals</span>
+        <span>Screaming Frog</span><span>WordPress SEO</span><span>Arabic content</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 AUTOMATION -->
+<section class="block" id="automation">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">04</span><span class="ttl">AI &amp;<br>automation</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Removing the work nobody should be doing by hand</h2>
+        <p class="lead">If a person on your team spends hours copying between systems, writing the same replies, or rebuilding the same report — that is a script, not a job.</p>
+      </div>
+      <div class="offer up">
+        <div class="cell">
+          <h4>AI assistants and tools</h4>
+          <p>LLM-backed tools built around your data and your rules, not a generic chatbot bolted onto a website.</p>
+          <ul class="deliver">
+            <li>Document drafting and summarising</li>
+            <li>Analysis terminals with live data</li>
+            <li>Browser extensions for repetitive web work</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h4>Data pipelines and scrapers</h4>
+          <p>Scheduled jobs that pull, clean and import data while your team sleeps.</p>
+          <ul class="deliver">
+            <li>Scraping with rate limiting and deduplication</li>
+            <li>Scheduled imports into your database</li>
+            <li>Alerting when something breaks or a threshold trips</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TRADING + DATA -->
+<section class="block" id="specialist">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">05</span><span class="ttl">Specialist<br>work</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Trading systems and business reporting</h2>
+        <p class="lead">Two areas I work in that most developers do not touch.</p>
+      </div>
+      <div class="offer up">
+        <div class="cell">
+          <h4>Trading systems</h4>
+          <p>MetaTrader 5 Expert Advisors and TradingView indicators, written so you can read and audit the logic yourself.</p>
+          <ul class="deliver">
+            <li>Strategy coded from your written rules</li>
+            <li>Risk caps, drawdown limits and news filters</li>
+            <li>Backtest reports before anything goes live</li>
+            <li>Signal copying and trade journalling tools</li>
+          </ul>
+          <p style="margin-top:12px;font-size:.83rem;color:var(--ink-faint)">I build and test the tooling. Trading carries real risk of loss, and no system is sold as a guaranteed return.</p>
+        </div>
+        <div class="cell">
+          <h4>Data and reporting</h4>
+          <p>Turning messy operational data into dashboards management will actually open.</p>
+          <ul class="deliver">
+            <li>Data cleaning and modelling</li>
+            <li>Power BI dashboards with scheduled refresh</li>
+            <li>Excel systems that stop breaking</li>
+            <li>Bilingual documents generated from your data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ENGAGEMENT -->
+<section class="block" id="engagement">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">06</span><span class="ttl">How we<br>work together</span></div>
+    <div>
+      <div class="spec-head up">
+        <h2>Three ways to engage</h2>
+        <p class="lead">Pricing depends on scope, so no figures are published here — but every quote is fixed before work begins, and payment is split across milestones.</p>
+      </div>
+      <div class="plans up">
+        <div class="plan">
+          <span class="kind">Option A</span>
+          <h3>Fixed-scope project</h3>
+          <p>For a defined build with a clear end: a system, a website, a marketplace launch.</p>
+          <ul>
+            <li>Written scope and schema first</li>
+            <li>Fixed price, milestone payments</li>
+            <li>Staging link throughout</li>
+            <li>Source and credentials on handover</li>
+            <li>30 days of free bug fixes</li>
+          </ul>
+          <a href="index.html#brief" class="act ghost">Request a quote</a>
+        </div>
+        <div class="plan feature">
+          <span class="kind">Option B · most common</span>
+          <h3>Monthly retainer</h3>
+          <p>For ongoing work: running marketplace accounts, SEO, and changes to a live system.</p>
+          <ul>
+            <li>Agreed hours or scope each month</li>
+            <li>Priority on fixes and requests</li>
+            <li>Monthly report on what moved</li>
+            <li>Cancel with one month's notice</li>
+            <li>Rate drops as the engagement extends</li>
+          </ul>
+          <a href="index.html#brief" class="act fill">Discuss a retainer</a>
+        </div>
+        <div class="plan">
+          <span class="kind">Option C</span>
+          <h3>Audit or consultation</h3>
+          <p>For when you need to know what is wrong before committing to a rebuild.</p>
+          <ul>
+            <li>Technical, SEO or marketplace audit</li>
+            <li>Written findings, ranked by impact</li>
+            <li>Effort estimate for each fix</li>
+            <li>Fee credited if you proceed with the work</li>
+          </ul>
+          <a href="index.html#brief" class="act ghost">Book an audit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="shell spec">
+    <div class="spec-rail"><span class="idx">07</span><span class="ttl">Common<br>questions</span></div>
+    <div>
+      <div class="faq up">
+        <details open>
+          <summary>Do you work with clients outside Saudi Arabia?</summary>
+          <p>Yes. I am based in Jeddah and work in Saudi hours, but a good share of my clients are in Pakistan, the UAE and further afield. Everything runs over WhatsApp, email and a shared staging link, so location rarely matters.</p>
+        </details>
+        <details>
+          <summary>Who owns the code when the project ends?</summary>
+          <p>You do. On handover you receive the full source, the database, and every credential — hosting, domain, email, third-party keys. Nothing is locked to me, and you are free to hire anyone else to continue the work.</p>
+        </details>
+        <details>
+          <summary>Can you take over a system another developer built?</summary>
+          <p>Often, yes. I start with a paid audit so both of us know what we are dealing with before committing — sometimes the honest answer is that a rebuild costs less than the repair, and I would rather tell you that upfront than discover it halfway through.</p>
+        </details>
+        <details>
+          <summary>How long does a typical project take?</summary>
+          <p>Most builds run two to six weeks from approved scope to live system. A marketplace launch is usually two to four weeks depending on how fast verification clears. SEO is different — technical fixes show inside a month, but ranking movement realistically takes three to six.</p>
+        </details>
+        <details>
+          <summary>Can you work in Arabic?</summary>
+          <p>I build bilingual Arabic and English systems, including right-to-left layouts and bilingual printed documents, and I write Arabic marketplace and SEO content. My spoken Arabic is basic, so project conversations are in English or Urdu.</p>
+        </details>
+        <details>
+          <summary>Do you guarantee first-page rankings or sales figures?</summary>
+          <p>No, and be cautious of anyone who does. Rankings and marketplace sales depend on competition, budget and product factors outside any contractor's control. What I commit to is the work itself — the fixes, the listings, the reporting — and showing you exactly what moved each month.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="shell">
+    <div class="cta up">
+      <span class="tag">Next step</span>
+      <h2 style="margin-top:14px">Tell me what you need built or fixed</h2>
+      <p>Send a paragraph describing the problem. You will get a scope, a timeline and a fixed price back, usually within one working day.</p>
+      <div class="cta-acts">
+        <a href="index.html#brief" class="act fill">Send a project brief</a>
+        <a href="https://wa.me/966539429053" class="act" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:yoshaqasmi@gmail.com" class="act ghost">yoshaqasmi@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<a class="wa-float" href="https://wa.me/966539429053" target="_blank" rel="noopener" aria-label="Message me on WhatsApp">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.46 1.34 4.97L2 22l5.27-1.38a9.9 9.9 0 0 0 4.77 1.22c5.46 0 9.9-4.44 9.9-9.9A9.9 9.9 0 0 0 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.05-.2-.31a8.22 8.22 0 1 1 6.98 3.87Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35 1 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+</a>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Yasir Nasir Qasmi — Jeddah, Saudi Arabia</span>
+    <span><a href="mailto:yoshaqasmi@gmail.com">yoshaqasmi@gmail.com</a> · <a href="tel:+966539429053">+966 53 942 9053</a> · <a href="https://www.linkedin.com/in/yasirnasirqasmi/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+const topbar=document.getElementById('topbar');
+addEventListener('scroll',()=>topbar.classList.toggle('pinned',scrollY>12),{passive:true});
+const burger=document.getElementById('hamburger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>burger.setAttribute('aria-expanded',menu.classList.toggle('open')));
+menu.addEventListener('click',e=>{if(e.target.tagName==='A')menu.classList.remove('open')});
+document.getElementById('year').textContent=new Date().getFullYear();
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');obs.unobserve(e.target)}})},
+  {threshold:.1,rootMargin:'0px 0px -30px'});
+document.querySelectorAll('.up').forEach((el,i)=>{el.style.transitionDelay=(i%3)*60+'ms';obs.observe(el)});
+</script>
+</body>
+</html>
